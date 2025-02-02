@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: white;
+                width: 100vw;
+                height: 100vw;
+            }
+            /* Warna Navbar */
+            #navbar {
+                background-color: #B2A5FF !important;
+            }
+            #title {
+                background-color: #DAD2FF !important;
+            }
+            #bab{
+                background-color: #C4D9FF !important;
+            }
+            #provinceDetailModal {
+    position: fixed;
+    z-index: 1000;
+    width: 100vw; /* Lebih besar, sesuaikan sesuai kebutuhan */
+    max-width: 100vw; /* Maksimum lebar */
+    height: 100%; /* 80% dari tinggi layar */
+    max-height: 100vh; /* Maksimum tinggi */
+    padding: 0px;
+}
+#provinceDetailModal .modal-content {
+    width: 100vw; /* Atur lebar konten modal menjadi 90% */
+    max-width: 100vw; /* Lebar maksimal */
+    max-height: 100%; /* Pastikan tinggi maksimal tidak melebihi 90% dari tinggi layar */
+    overflow-y:auto;
+}
+            #carousel {
+    display: flex;
+    width: 100%; /* Karena ada 3 gambar */
+}
+#detailText {
+    padding: 20px 0;
+    max-height: 60vh; /* Menjaga tinggi teks agar tidak mengganggu scroll */
+    overflow-y: auto;
+    text-align: justify;
+}
+
+#carousel img {
+    width: 100%;
+    flex: 0 0 100%; /* Setiap gambar mengambil 100% lebar tampilan */
+}
+        </style>
+    </head>  
+
+<body class="text-black-900 bg-white w-full position-relative">
+    
+          <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 w-full shadow-md transition-all duration-300 bg-white">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Nama Web di Kiri -->
+        <h1 class="text-2xl font-bold text-gray-900">Ragam Budaya</h1>
+
+        <!-- Menu di Kanan (Desktop) -->
+        <div class="hidden md:flex space-x-6">
+            <a href="#home" class="text-gray-900 hover:text-blue-500 font-semibold">HOME</a>
+            <a href="#profile" class="text-gray-900 hover:text-blue-500 font-semibold">PROFIL</a>
+        </div>
+        </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden flex flex-col items-center bg-white shadow-md py-4 md:hidden">
+        <a href="#home" class="text-gray-900 hover:text-blue-500 font-semibold py-2">Home</a>
+        <a href="#profile" id="loadButton" class="text-gray-900 hover:text-blue-500 font-semibold py-2">Profil</a>
+    </div>
+</nav>
+
+    <!-- Gambar Sampul (Carousel) -->
+    <section id="home" class="flex w-full h-[800px] mt-16 position-relative">
+        <div class="relative w-full h-full overflow-hidden">
+            <div id="carousel" class=" w-full h-full transition-transform duration-500">
+                <img src="assets/borobudur.jpg" class="w-full h-full object-cover">
+                <img src="assets/kecak.jpg" class="w-full h-full object-cover">
+                <img src="assets/rajaampat.jpg" class="w-full h-full object-cover">
+            </div>
+            <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded-full">❮</button>
+        <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded-full">❯</button>
+        </div>
+        <!-- Tombol Navigasi -->
+        
+    </section>
+
+    <!-- Main Content -->
+    <main class="p-6 bg-gray-200 w-auto" id="title">
+        <section class="text-center py-20 w-auto">
+            <h2 class="text-4xl font-semibold text-gray-900">Selamat Datang di Ragam Budaya</h2>
+            <p class="mt-4 text-gray-700 text-gray-300">Mari mengenal keanekaragaman budaya Indonesia dari Sabang sampai Merauke.
+                <span class="animate-bounce">❤️</span>
+            </p>
+        </section>
+    </main>
+    <!-- Bagian Video -->
+<section class="py-16 bg-white bg-white text-center w-auto">
+    <div class="container mx-auto flex justify-center">
+        <div class="w-full max-w-4xl">
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+                <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg" 
+                    src="assets/The Heartbeat of Toba _ Indonesia.Travel.mp4" 
+                    title="Kebudayaan Indonesia" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Artikel tentang Kebudayaan Indonesia -->
+<section class="py-16 px-6 bg-white text-black-900 w-auto">
+    <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold text-center mb-6">Keanekaragaman Budaya Indonesia</h2>
+        <p class="text-gray-700 text-lg leading-relaxed text-justify">
+            Kebudayaan nasional dalam pandangan Ki Hajar Dewantara adalah “puncak-puncak dari kebudayaan daerah”. Kutipan pernyataan ini merujuk pada paham kesatuan makin dimantapkan, sehingga ketunggalikaan makin lebih dirasakan daripada kebhinekaan. Wujudnya berupa negara kesatuan, ekonomi nasional, hukum nasional, serta bahasa nasional. Kebudayaan nasional bisa juga berarti sifat wutuhnya bangsa, teristimewa mengenai tingkatan atau derajat kemanusiaannya, baik lahir maupun batin. Definisi yang diberikan oleh Koentjaraningrat dapat dilihat dari pernyataannya: “yang khas dan bermutu dari suku bangsa mana pun asalnya, asal bisa mengidentifikasikan diri dan menimbulkan rasa bangga, itulah kebudayaan nasional”. Pernyataan ini merujuk pada puncak-puncak kebudayaan daerah dan kebudayaan suku bangsa yang bisa menimbulkan rasa bangga bagi orang Indonesia jika ditampilkan untuk mewakili identitas bersama. Nunus Supriadi, “Kebudayaan Daerah dan Kebudayaan Nasional”
+            <br><br>
+            Pernyataan yang tertera pada GBHN tersebut merupakan penjabaran dari UUD 1945 Pasal 32. Dewasa ini tokoh-tokoh kebudayaan Indonesia sedang mempersoalkan eksistensi kebudayaan daerah dan kebudayaan nasional terkait dihapuskannya tiga kalimat penjelasan pada pasal 32 dan munculnya ayat yang baru. Mereka mempersoalkan adanya kemungkinan perpecahan oleh kebudayaan daerah jika batasan mengenai kebudayaan nasional tidak dijelaskan secara gamblang.
+            <br><br>
+            Sebelum diamendemen, UUD 1945 menggunakan dua istilah untuk mengidentifikasi kebudayaan daerah dan kebudayaan nasional. Kebudayaan bangsa, ialah kebudayaan-kebudayaan lama dan asli yang terdapat sebagi puncak-puncak di daerah-daerah di seluruh Indonesia, sedangkan kebudayaan nasional sendiri dipahami sebagai kebudayaan bangsa yang sudah berada pada posisi yang memiliki makna bagi seluruh bangsa Indonesia. Dalam kebudayaan nasional terdapat unsur pemersatu dari Bangsa Indonesia yang sudah sadar dan mengalami persebaran secara nasional. Di dalamnya terdapat unsur kebudayaan bangsa dan unsur kebudayaan asing, serta unsur kreasi baru atau hasil invensi nasional.
+            <br><br>
+            Kebudayaan Indonesia tercermin dalam seni, musik, makanan, serta nilai-nilai yang diwariskan secara turun-temurun. Keberagaman ini menjadikan Indonesia sebagai salah satu negara dengan warisan budaya terkaya di dunia.  
+            <br><br>
+            Salah satu contoh kebudayaan yang terkenal adalah *Batik*, yang telah diakui oleh UNESCO sebagai warisan budaya dunia. Selain itu, tari-tarian seperti *Tari Saman* dari Aceh dan *Tari Kecak* dari Bali juga dikenal luas.  
+        </p>
+    </div>
+</section>
+<!-- Bagian Kartu Provinsi -->
+<section class="py-16 px-6 bg-gray-100 w-full " id="bab">
+    <div class="container mx-auto h-auto w-auto">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 ">Provinsi di Indonesia</h2>
+        
+        <!-- Grid Kartu -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 " >
+            <!-- Kartu Provinsi (Contoh Aceh, Sumut, Sumbar) -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('aceh',this)">
+                <img src="assets/mesjid-raya-baiturrahman-2537403_1280.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Nanggroe Aceh Darussalam</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sumut')">
+                <img src="assets/toba.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sumatera Utara</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sumbar')">
+                <img src="assets/padang.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sumatera Barat</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('riau')">
+                <img src="assets/tugu zapin.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Riau</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kepri')">
+                <img src="assets/Tugu Gonggong Bintan.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kepulauan Riau</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('jambi')">
+                <img src="assets/tugu keris.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Jambi</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sumsel')">
+                <img src="assets/ampera.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sumatra Selatan</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('bangka')">
+                <img src="assets/jembatan emas.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Bangka Belitung</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('bengkulu')">
+                <img src="assets/raflesia.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Bengkulu</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('lampung')">
+                <img src="assets/menara siger.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Lampung</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('banten')">
+                <img src="assets/ujung kulon.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Banten</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('jakarta')">
+                <img src="assets/monass.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">DKI Jakarta</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('jabar')">
+                <img src="assets/gedung sate.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Jawa Barat</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('jateng')">
+                <img src="assets/borobudur 2.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Jawa Tengah</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('yogyakarta')">
+                <img src="assets/tugu yk.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Daerah Istimewa Yogyakarta</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('jatim')">
+                <img src="assets/bromo.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Jawa Timur</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('bali')">
+                <img src="assets/bali.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Bali</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('ntb')">
+                <img src="assets/rinjani.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Nusa Tenggara Barat</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('ntt')">
+                <img src="assets/labuan bajo.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Nusa Tenggara Timur</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kalbar')">
+                <img src="assets/ponti.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kalimantan Barat</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kalteng')">
+                <img src="assets/jembatan kahayan.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kalimantan Tengah</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kalsel')">
+                <img src="assets/jembatan barito.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kalimantan Selatan</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kaltim')">
+                <img src="assets/jembatan mahkota.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kalimantan Timur</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('kaltara')">
+                <img src="assets/kaltara.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Kalimantan Utara</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sulut')">
+                <img src="assets/yesus.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sulawesi Utara</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sulteng')">
+                <img src="assets/sulteng.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sulawesi Tengah</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sulbar')">
+                <img src="assets/makassar.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sulawesi Selatan</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('gorontalo')">
+                <img src="assets/gorontalo.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Gorontalo</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sultenggara')">
+                <img src="assets/sul tenggara.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sulawesi Tenggara</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('sulbar')">
+                <img src="assets/mamuju.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Sulawesi Barat</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('maluku')">
+                <img src="assets/banda neira.webp" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Maluku</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('malut')">
+                <img src="assets/gamalama.jpeg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Maluku Utara</h3>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('papua')">
+                <img src="assets/raja ampat.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Papua</h3>
+                </div>
+            </div>
+
+            <div class="menu-card bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer" 
+                 onclick="showProvince('papuabarat')">
+                <img src="assets/sentani.jpg" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-900 ">Papua Barat</h3>
+                </div>
+            </div>
+<!-- Tambahkan 31 provinsi lainnya di sini -->
+        </div>
+    </div>
+</section>
+
+<!-- Modal untuk Detail Provinsi -->
+<div id="provinceDetailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center position-fixed">
+    <div class="modal-content bg-white p-6 rounded-lg w-11/12 max-w-[90%] max-h-[90%] overflow-hidden shadow-lg relative text-justify">
+        <button class="absolute top-4 right-4 text-gray-700 text-2xl" onclick="closeDetailModal()">×</button>
+        
+        <h2 id="detailProvinceTitle" class="text-2xl font-bold text-gray-900 mb-4"></h2>
+        
+        <!-- Menu Pilihan -->
+        <div class="flex space-x-4 mb-4">
+            <button class="tab-button bg-gray-200 px-4 py-2 rounded-md" onclick="showCategory('rumah')">Rumah Adat</button>
+            <button class="tab-button bg-gray-200 px-4 py-2 rounded-md" onclick="showCategory('tarian')">Tarian</button>
+            <button class="tab-button bg-gray-200 px-4 py-2 rounded-md" onclick="showCategory('wisata')">Wisata</button>
+            <button class="tab-button bg-gray-200 px-4 py-2 rounded-md" onclick="showCategory('baju')">Pakaian Adat</button>
+        </div>
+
+        <!-- Konten yang Berubah -->
+        <div id="detailContent" class="text-gray-700 w-full h-500 overflow-auto">
+            <!-- Wrapper untuk gambar yang akan di tengah -->
+            <div class="flex justify-center items-center mb-4">
+                <img id="detailImage" src="assets/bg1.jpg" class="max-w-full max-h-full object-contain rounded-lg">
+            </div>
+            <p id="detailText" class="max-h-[70vh] overflow-y-auto text-justify"></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bagian Profil -->
+<section class="py-16 px-6 bg-gray-100 dark:bg-gray-800 w-full p-6 justify-between overflow-hidden" id="profile">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Tim Pengembang</h2>
+
+        <!-- Grid Profil -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 overflow-hidden">
+            <!-- Anggota Tim (Contoh) -->
+            <div class="profile-card opacity-0 transform translate-x-20 transition-all duration-700 bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
+                <img src="assets/hanip.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Hanif Helmi Fadhilah</h3>
+                <p class="text-gray-700 dark:text-gray-300">20.11.3335</p>
+            </div>
+
+            <div class="profile-card opacity-0 transform translate-x-20 transition-all duration-700 bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
+                <img src="assets/Fetrus jari.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Fetrus Jari Harianto</h3>
+                <p class="text-gray-700 dark:text-gray-300">20.11.3314</p>
+            </div>
+
+            <div class="profile-card opacity-0 transform translate-x-20 transition-all duration-700 bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
+                <img src="assets/rita.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Rita Ayuning Tyas</h3>
+                <p class="text-gray-700 dark:text-gray-300">20.11.3306</p>
+            </div>
+
+            <div class="profile-card opacity-0 transform translate-x-20 transition-all duration-700 bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
+                <img src="assets/senopati.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Senopati Gilas Prahara</h3>
+                <p class="text-gray-700 dark:text-gray-300">20.11.3334</p>
+            </div>
+
+            <div class="profile-card opacity-0 transform translate-x-20 transition-all duration-700 bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
+                <img src="assets/barak.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Akhmad Khosni Mubarak</h3>
+                <p class="text-gray-700 dark:text-gray-300">20.11.3343</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-200 position-fixed">
+        <p>© 2023 Ragam Budaya. All rights reserved.</p>
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Carousel Gambar Sampul
+        const carousel = document.getElementById("carousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let index = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        prevBtn.addEventListener("click", () => {
+            index = index > 0 ? index - 1 : 2;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            index = index < 2 ? index + 1 : 0;
+            updateCarousel();
+        });
+
+        setInterval(() => {
+            index = index < 2 ? index + 1 : 0;
+            updateCarousel();
+        }, 5000);
+
+
+        const provinceDetails = {
+        aceh: {
+            title: "Provinsi Aceh",
+            rumah: {
+                text: "Krong Bade adalah rumah tradisional Aceh yang lebih dikenal dengan nama Rumoh Aceh. Dalam susunan bangunan ini, Rumah Krong Bade berbentuk persegi panjang yang memanjang dari timur ke barat. Rumah Krong Bade merupakan rumah panggung dengan ketinggian berkisar 2,5 - 3 meter dari permukaan tanah. Adapun, tiang penyangga rumah ini terbuat dari kayu. Dinding dan lantai terbuat dari papan, serta alasnya terbuat dari bambu atau trieng. Atapnya terbuat dari rumbia atau daun enau yang dianyam. Biasanya untuk menyatukan antar bagian bangunan cukup diikat dengan Taloe meu-ikat atau rotan. Ijuk, dan kulit pohon waru. Rumah Krong bade ini memiliki tangga dengan jumlah anak tangga yang ganjil.",
+                img: "assets/rumah krong bade.jpg", 
+            },
+            tarian: {
+                text: "Tari Saman adalah tari rakyat dari masyarakat Suku Gayo di Aceh, Indonesia. Tarian ini merupakan salah satu media untuk menyampaikan pesan atau dakwah. Tarian ini mencerminkan pendidikan, keagamaan, sopan santun, kepahlawanan, kekompakan dan kebersamaan. Sebelum saman dimulai yaitu sebagai mukaddimah atau pembukaan, tampil seorang tua cerdik pandai atau pemuka adat untuk mewakili masyarakat setempat (keketar) atau nasihat-nasihat yang berguna kepada para pemain dan penonton.Lagu dan syair pengungkapannya secara bersama dan berkesinambungan, pemainnya terdiri dari pria-pria yang masih muda-muda dengan memakai pakaian adat. Penyajian tarian tersebut dapat juga dipentaskan, dipertandingkan antara grup tamu dengan grup sepangkalan (dua grup). Penilaian dititik beratkan pada kemampuan masing-masing grup dalam mengikuti gerak, tari dan lagu (syair) yang disajikan oleh pihak lawan.",
+                img: "assets/tari saman.jpg"
+            },
+            wisata: {
+                text: "Pantai Pasir Putih Lhok Mee memiliki pasir putih yang menawan dan air laut yang jernih. Ombak Pantai Pasir Putih Lhok Mee sangat tenang sehingga cocok untuk anak-anak yang ingin bermain air atau mandi di pantai. Pengunjung juga dapat melihat keindahan terumbu karang serta biodata laut yang bermunculan di tepi pantai. Keunikan Pantai Lhok Mee adalah adanya pepohonan yang tumbuh di dalam air yang berada di pinggir pantai. Pemandangan tersebut membuat Pantai Pasir Putih Lhok Mee terlihat indah bagaikan surga. Pengelola juga menyediakan net bola voli untuk pengunjung yang ingin bermain olah raga tersebut. Pengunjung tidak perlu khawatir jika merasa kelaparan atau kehausan. Tersedia warung yang menyediakan hidangan seafood dan air kelapa muda yang dapat disantap sambil menikmati keindahan pantai.",
+                img: "assets/Pantai lhok me.jpg"
+            },
+            baju: {
+                text: "Pakaian adat Ulee Balang awalnya hanya dipakai oleh keluarga raja, sekarang pakaian adat tersebut menjadi pakaian adat Aceh dan dipakai untuk upacara adat. Dilansir dari situs Kementerian Pendidikan dan Kebudayaan (Kemdikbud), nama pakaian adat Aceh dikenal dengan Ulee Balang. Di mana baju adat Nanggroe Aceh Darussalam untuk laki laki sering dikenal dengan sebutan baju Linto Baro. Sementara pakaian Aceh yang dikenakan oleh perempuan disebut baju Daro Baro. Konon, pakaian adat tersebut sudah ada sejak masa Kerajaan Samudera Pasai.*.",
+                img: "assets/ule balang.webp"
+            }
+        },
+        sumut: {
+            title: "Provinsi Sumatera Utara",
+            rumah: {
+                text: "Suku Batak merupakan salah satu suku yang ada di negara ini dan berada di Provinsi Sumatera Barat. Sama halnya seperti suku lain, yang kaya akan tradisi dan adat, di Suku Batak pun dikenal rumah adat yang menjadi simbol kehidupan masyarakatnya. Rumah Bolon merupakan sebutan untuk rumah adat tersebut. Awalnya rumah adat ini digunakan sebagai tempat tinggal para raja. Saat itu, rumah Bolon telah ditempati oleh 14 orang raja, mereka adalah Raja Pangultop Ultop, Raja Nanggaraja, Raja Ranjinman. Kemudian Raja Batiran, Raja Bakkaraja, Raja Baringin, juga Raja Bona Batu, Raja Raja Ulan. Selain itu, ada Raja Atian, Raja Horma Bulan, Raja Raondop. Berikutnya adalah Raja Rahalim, Raja Karel Tanjung dan yang terakhir menempati rumah tersebut adalah raja terakhir, yaitu Raja Mogang. Adapun ciri khas Rumah Bolon ini adalah berbentuk persegi panjang. Dilengkapi dengan banyak tiang penyangga, sehingga rumah ini mirip dengan rumah panggung. Menariknya, rumah adat Batak ini juga dibangun dengan anak tangga yang jumlahnya ganjil. Rumah Bolon juga memiliki atap yang lancip, baik di bagian depan maupun belakangnya. Pada bagian depannya dibuat lebih panjang dibandingkan dengan bagian belakangnya. Hal ini dipercaya bahwa keturunan dari pemilik rumah akan sukses. Ciri khas lainnya terletak pada ornamen yang digunakan. Dimana Anda bisa menemukan ornamen khas Batak yang melambangkan penolak bala ataupun penyakit.",
+                img: "assets/rumah bolon.jpg"
+            },
+            tarian: {
+                text: "Tari Tortor adalah tarian khas dari suku Batak Toba yang ada di provinsi Sumatra Utara. Tarian ini menjadi hal penting bagi budaya dan adat dari suku Batak.Melalui tarian ini masyarakat Batak mengutarakan segala harapan, doa, dan perlindungan. Karena itu tari Tortor bersifat sakral. Biasanya tarian ini dilakukan pada upacara sukacita, penyambutan tamu-tamu atau saat syukuran hingga panen. Kesakralan juga terlihat dari gerakan dari Tortor ini yang dipadukan dengan dentuman langkah kaki dan gapaian tangan, jari jemari yang snagat sistematis dan harmonis sesuai dengan ajakan musik yang indah dari gondang yang merdu mengiringi.",
+                img: "assets/tari tortor.jpg"
+            },
+            wisata: {
+                text: "Danau Toba adalah danau alami berukuran besar di Sumatera Utara, Indonesia yang terletak di kaldera gunung supervulkan. Danau ini memiliki panjang 100 kilometer, lebar 30 kilometer, dan kedalaman 508 meter. Danau ini terletak di tengah pulau Sumatra bagian utara dengan ketinggian permukaan sekitar 900 meter. Sebagian besar penduduk yang tinggal di sekitar Danau Toba adalah suku Batak. Rumah tradisional Batak dapat dikenali dari bentuk atapnya. Danau ini merupakan salah satu dari 21 geopark atau taman bumi di Indonesia dan pada Juli 2020, diakui sebagai geopark dunia oleh UNESCO. Toba sebagai salah satu geopark dunia sudah dikampanyekan dan diusung oleh Pemerintah Indonesia sejak tahun 2018.",
+                img: "assets/danau toba.jpg"
+            },
+            baju: {
+                text: "umatera Utara khas Batak Toba terbuat dari kain ulos atau kain tenun tradisional mulai dari bagian atas hingga bawah. Pakaian adat pria bagian atas dikenal dengan ampe-ampe sedangkan bagian bawah bernama singkot. Pakaian adat ini biasanya digunakan untuk acara tertentu seperti pesta syukuran dan pernikahan. Adapun bagian atas pada perempuan disebut hoba-hoba dan bagian bawah dikenal haen. Pakaian adat Batak Toba pada laki-laki dilengkapi dengan aksesori penutup kepala dan pengikat kepala atau tali-tali pada perempuan. Selain itu, pakaian adat pada perempuan juga dilengkapi dengan selendang ulos.",
+                img: "assets/ulos.webp"
+            }
+        },
+        sumbar: {
+            title: "Provinsi Sumatera Barat",
+            rumah: {
+                text: "Rumah Gadang adalah nama untuk rumah adat Minangkabau yang merupakan rumah tradisional dan banyak dijumpai di Sumatera Barat, Indonesia. Rumah ini juga disebut dengan nama lain oleh masyarakat setempat dengan nama Rumah Bagonjong atau ada juga yang menyebut dengan nama Rumah Baanjuang.Rumah dengan model ini juga banyak dijumpai di Sumatera Barat. Namun tidak semua kawasan di Minangkabau (darek) yang boleh didirikan rumah adat ini, hanya pada kawasan yang sudah memiliki status sebagai nagari saja Rumah Gadang ini boleh didirikan. Begitu juga pada kawasan yang disebut dengan rantau, rumah adat ini juga dahulunya tidak ada yang didirikan oleh para perantau Minangkabau.",
+                img: "assets/rumah gadang.jpg"
+            },
+            tarian: {
+                text: "Tari piring adalah tarian tradisional Minangkabau yang berasal dari Sumatera Barat, Solok. Tarian ini menampilkan atraksi menggunakan piring. Para penari mengayunkan piring di tangan mengikuti gerakan-gerakan cepat yang teratur, tanpa satu pun piring terlepas dari tangan. Gerakannya diambil dari langkah dalam silat Minangkabau atau silek.Tari ini dipopulerkan oleh Huriah Adam. Saat ini, tari piring dipertunjukkan untuk penyambutan tamu terhormat atau pembukaan upacara adat. Bersama dengan tari saman, pendet, dan jaipong, tari ini menjadi tarian populer Indonesia yang kerap ditampilkan di ajang promosi pariwisata dan kebudayaan Indonesia.",
+                img: "assets/tari piring.webp"
+            },
+            wisata: {
+                text: "Jam Gadang adalah menara jam yang menjadi penanda atau ikon Kota Bukittinggi, Sumatera Barat, Indonesia. Menara jam ini menjulang setinggi 27 meter dan diresmikan pembangunannya pada 25 Juli 1927. Terdapat jam berukuran besar berdiameter 80 cm di empat sisi menara sehingga dinamakan Jam Gadang, sebutan bahasa Minangkabau yang berarti jam besar.Jam Gadang menjadi lokasi peristiwa penting pada masa sekitar kemerdekaan Indonesia, seperti pengibaran bendera merah putih (1945), Demonstrasi Nasi Bungkus (1950), dan pembunuhan 187 penduduk setempat oleh militer Indonesia atas tuduhan terlibat Pemerintahan Revolusioner Republik Indonesia (1959). Saat ini, Jam Gadang menjelma menjadi objek wisata dengan perluasan taman di sekitarnya. Taman tersebut menjadi ruang interaksi masyarakat baik pada hari kerja maupun pada hari libur. Acara-acara yang sifatnya umum biasanya diselenggarakan di sini.",
+                img: "assets/jam gadang.jpg"
+            },
+            baju: {
+                text: "Bundo Kanduang atau dapat diterjemahkan secara kasar ke dalam bahasa Indonesia sebagai Bunda Kandung, adalah personifikasi etnis Minangkabau sekaligus julukan yang diberikan kepada perempuan sulung atau yang dituakan dalam suatu suku (klan). Sebutan bundo kanduang hanya melakat pada seorang perempuan yang sudah berkeluarga. ",
+                img: "assets/bundo kanduang.jpg"
+            }
+        },
+
+        riau: {
+            title: "Provinsi Riau",
+            rumah: {
+                text: "Selaso Jatuh Kembar (Bahasa Melayu Riau) adalah rumah adat khas Riau yang berupa balai selaso jatuh. Balai atau rumah adat ini difungsikan sebagai tempat berkegiatan bersama, sebagai tempat pertemuan, tetapi tidak digunakan sebagai tempat tinggal pribadi. Rumah Adat Selaso Jatuh Kembar dikenal juga dengan sebutan balai penobatan, balirung sari, balai karapatan dan sebagainya. Dulu bangunan ini sangat ramai karena kerap digunakan oleh warga untuk melaksanakan acara-acara adat lokal, seperti musyawarah, penobatan kepala adat, untuk rapat perihal desa dan bahkan untuk melaksanakan upacara adat. Akan tetapi, sekarang semua itu telah digantikan oleh masjid.",
+                img: "assets/rumah riau.jpg"
+            },
+            tarian: {
+                text: "Tari Zapin merupakan seni tarian yang mendapat pengaruh timur tengah yang populer dalam kalangan masyarakat Melayu di Indonesia tarian ini merupakan hasil olahan masyarakat Melayu mengingat tidak ditemukannya tarian Zapin sendiri di timur tengah, tarian ini tersebar di wilayah yang bermayoritas Melayu. Zapin diyakini masuk ke wilayah Nusantara dipengaruhi oleh orang-orang Persia dan Arab yang berakulturasi dengan kebudayaan Melayu lokal dalam menyebarkan ajaran Islam dari Timur Tengah pada sekitar abad keempat belas. Kala itu hanya laki-laki yang diperbolehkan untuk melakukan tarian zapin. Sekarang ini, penari wanita juga dapat disertakan. Dahulu, tarian ini hanya dilakukan untuk upacara keagamaan tetapi selama berabad-abad tarian itu telah berkembang menjadi suatu bentuk hiburan tradisional bagi masyarakat Melayu, sehingga penari wanita diperbolehkan berpartisipasi.",
+                img: "assets/tari zapin.webp"
+            },
+            wisata: {
+                text: "Pulau ini dapat dijangkau dari Pekanbaru, Dumai atau Bengkalis. Jalur utama pengangkutan dari dan ke pulau ini adalah melalui laut. Telah ada jadwal transportasi tetap menuju ke pulau ini, yaitu jadwal penyebrangan Roro dumai rupat. Perjalanan dari Dumai ke Pulau Rupat dapat ditempuh dalam waktu 20 - 30 menit dengan menggunakan Roro. Sedangkan berangkat dari Bengkalis membutuhkan waktu lebih kurang 2 jam perjalanan.Pulau Rupat terbagi dua, yakni Rupat dan Rupat Utara. Penduduk di Rupat Utara lebih banyak dibandingkan di Rupat. Kira-kira hanya ada puluhan kepala keluarga di Rupat. Namun kini, penduduk Rupat dan Rupat Utara tidak jauh berbeda.Sepanjang perjalanan kita akan melihat pemandangan yang indah.",
+                img: "assets/pulau rupat.jpg"
+            },
+            baju: {
+                text: "Baju kurung adalah salah satu pakaian adat masyarakat Melayu di Indonesia dan Malaysia. Baju kurung sering diasosiasi dengan kaum perempuan. Ciri khas baju kurung adalah rancangan yang longgar pada lubang lengan, perut, dan dada. Pada saat dikenakan, bagian paling bawah baju kurung sejajar dengan pangkal paha, tetapi untuk kasus yang jarang ada pula yang memanjang hingga sejajar dengan lutut. Baju kurung tidak dipasangi kancing, melainkan hampir serupa dengan t-shirt, meski begitu tetapi baju kurung ada juga yang memiliki kancing yang jumlahnya sekitar 3 baris. Baju kurung tidak pula berkerah, tiap ujungnya direnda. Beberapa bagiannya sering dihiasi sulaman berwarna keemasan.Pada awalnya baju kurung biasa dipakai untuk upacara kebesaran Melayu oleh kaum perempuan di dalam kerajaan, dipakai bersama-sama kain songket untuk dijadikan sarungnya, aneka perhiasan emas, dan tas kecil atau kipas. Karena sebagian besar masyarakat Melayu memeluk Islam, banyak perempuan pengguna baju kurung yang menyerasikannya dengan jilbab, meskipun demikian terdapat juga yang tidak menggunakannya. Kini baju kurung banyak dipakai oleh masyarakat biasa, digunakan anak-anak untuk mengaji, atau ibu-ibu untuk ke pasar, tanpa disertakan pernak-pernik yang terkesan mewah.",
+                img: "assets/baju kurung.jpg"
+            }
+        },
+
+        kepri: {
+            title: "Provinsi Kepulauan Riau",
+            rumah: {
+                text: "Rumah Belah Bubung adalah rumah adat dari kepulauan Riau yang berada di Indonesia. Rumah Belah Bubung juga dikenal dengan nama rumah rabung atau rumah bubung melayu. Konon, nama rumah ini diberikan oleh orang-orang asing yang datang ke Indonesia seperti Tiongkok dan Belanda. Rumah Belah Bubung memiliki model rumah yang sama dengan rumah panggung. Rumah ini memiliki tinggi 2 meter dari tanah dan ditopang oleh beberapa tiang penyangga. Rumah ini memiliki atap yang berbentuk seperti pelana kuda. Rumah induk terbagi menjadi 4 bagian yaitu selasar, ruang induk, ruang penghubung dapur, dan dapur. Rumah Belah Bubung memiliki bahan dasar yaitu kayu. Proses pembangunan rumah pun tidak sembarangan karena harus melalui beberapa tahap yang dipercaya menghindari pemilik rumah dari kesialan. Ukuran rumah ini juga bergantung dari kemampuan ekonomi dari sang pemilik rumah. Semakin besar ukuran rumah ini memperlihatkan bahwa kemampuan ekonomi dari pemilik rumah adalah menengah ke atas, tetapi semakin kecil rumah ini menunjukkan bahwa ekonomi pemilik rumah menengah ke bawah.",
+                img: "assets/rumah belang bubung.png"
+            },
+            tarian: {
+                text: "Mak Yong adalah seni teater tradisional masyarakat Melayu yang sampai sekarang masih digemari dan sering dipertunjukkan sebagai dramatari dalam forum internasional. Di zaman dulu, pertunjukan mak yong diadakan orang desa di pematang sawah selesai panen padi. Dramatari mak yong dipertunjukkan di negara bagian Terengganu, Pattani, Kelantan, dan Kedah. Selain itu, mak yong juga dipentaskan di Kepulauan Riau dan Sumatera Utara, Indonesia. Di Kepulauan Riau, mak yong dibawakan penari yang memakai topeng, berbeda dengan di Malaysia yang tanpa topeng. Pertunjukan mak yong dibawakan kelompok penari dan pemusik profesional yang menggabungkan berbagai unsur upacara keagamaan, sandiwara, tari, musik dengan vokal atau instrumental, dan naskah yang sederhana. Tokoh utama pria dan wanita keduanya dibawakan oleh penari wanita. Tokoh-tokoh lain yang muncul dalam cerita misalnya pelawak, dewa, jin, pegawai istana, dan binatang. Pertunjukan mak yong diiringi alat musik seperti rebab, gendang, dan tetawak.",
+                img: "assets/tari mak yong.jpg"
+            },
+            wisata: {
+                text: "Pulau Bintan adalah pulau di provinsi Kepulauan Riau, di mana terdapat Kota Tanjungpinang, Ibu kota Provinsi Kepulauan Riau. Di Pulau ini memiliki tiga Pemerintahan, Pemerintah Kota Tanjungpinang yang terletak di Senggarang, Pemerintah Kabupaten Bintan terletak di Bandar Seri Bintan, serta Pemerintahan Provinsi Kepulauan Riau di Pulau Dompak (Tanjungpinang). Pulau ini berdekatan dengan negara Singapura. Bintan adalah pulau terbesar di Kepulauan Riau, yang terdiri dari hampir 3.000 pulau besar dan kecil, terbentang di sebrang Singapura dan Johor Bahru, Malaysia. Pulau ini melebar dari Malaka ke Laut Natuna Utara. Tanjungpinang merupakan ibu kota provinsi ini, terletak di pantai barat selatan Bintan. Secara strategis terletak di semenanjung selatan Malaysia di mulut Selat Malaka, Kepulauan Riau, dahulu pada abad pertama masehi, merupakan tempat favorit bagi kapal dagang India dan Cina. Tujuan wisata teratas di sini adalah Bintan Resor, destinasi wisata berupa pantai yang spektakuler di utara pulau, dengan luas 23,000 hektare di atas pasir putih yang menghadap ke Laut Cina Selatan. Pulau ini juga memiliki riwayat yang menarik di Tanjungpinang dan Penyengat, yang menawarkan kesempatan untuk surfing, bertualang dan ekowisata untuk pelajar dan keluarga, tetapi juga ideal untuk bersantai dan kesehatan. Pantai di salah satu resort di Pulau Bintan. Sementara, bagi mereka yang suka menyelam kepulauan Anambas di Laut Cina Selatan menawarkan lokasi menyelam yang masih alami, dapat dijangkau dari bandara Tanjungpinang. Sedangkan, kepulauan Natuna dapat dijangkau dari Batam.",
+                img: "assets/pulau rupat.jpg"
+            },
+            baju: {
+                text: "Baju Kebaya labuh di Lingga pada masa lampau digunakan juga sebagai pakaian harian kaum perempuan Melayu. Baju Kebaya dipakai dengan kain batik yang diikat dengan cara lipatan sebelah kanan menutup sebelah kiri. Untuk mengancing baju kebaya dipakai semat pin , jika untuk menghadiri acara resmi tertentu menggunakan tiga buah keronsang yang indah-indah dan berselendang. Kebaya labuh juga dijadikan pakaian bersanding pengantin tradisional Melayu Lingga. Pada masa lampau, sebagian kaum perempuan yang ingin menutup aurat secara sempurna menggunakan tudung lingkup yang dipadankan dengan kebaya labuh. Tudung lingkup sehelai kain sarung untuk menutup kepala dan dada. Pada masa kini baju kebaya labuh dipakai oleh kaum perempuan pada acara tertentu seperti majelis adat istiadat atau pun hari raya. Kebaya labuh juga masih digunakan sebagai pakaian bersanding pengantin perempuan Melayu Lingga.",
+                img: "assets/kebaya labuh.gif"
+            }
+        },
+
+        jambi: {
+            title: "Provinsi Jambi",
+            rumah: {
+                text: "Rumah Panggung Kajang Lako adalah nama rumah adat yang berasal dari daerah Jambi. Rumah ini adalah rumah tradisional masyarakat provinsi Jambi. Secara arsitektural, rumah panggung ini dibangun dengan tetap mempertahankan gaya tradisional yang merupakan warisan dari generasi nenek moyang masyarakat Jambi, baik pada bagian interior maupun pada bagian eksteriornya. Rumah tradisional ini tidak hanya dibangun sesuai dengan fungsi praktis rumah sebagai tempat tinggal, tetapi juga dibangun dengan memperhatikan fungsi sosial dan budaya masyarakat Jambi.",
+                img: "assets/rumah jambi.jpg"
+            },
+            tarian: {
+                text: "Tari Sekapur Sirih adalah tari tradisional untuk menyambut tamu yang memiliki makna mendalam berkaitan dengan penghormatan seseorang pada orang lain. Selain itu, tari Sekapur juga memiliki makna sebagai ungkapan rasa syukur serta perasaan bahagia masyarakat Jambi ketika kedatangan tamu. Tari ini juga menggambarkan keramahan masyarakat Jambi ketika ada tamu kehormatan yang datang. Secara umum, tari Sekapur Sirih memiliki dua fungsi yang berkaitan dengan makna yang terkandung dalam tarian ini yaitu menyambut tamu atau sebagai tari selamat datang dan sebagai wujud syukur dan suka cita. ",
+                img: "assets/tari jambi.jpg"
+            },
+            wisata: {
+                text: "Danau Gunung Tujuh merupakan danau yang terletak di desa Pelompek, kabupaten Kerinci, Jambi. Danau ini berada di kawasan Gunung Tujuh, sebuah gunung yang berada tepat di belakang Gunung Kerinci. Gunung Tujuh masih termasuk dalam wilayah Taman Nasional Kerinci Seblat yang merupakan Situs Warisan Dunia UNESCO. Seperti namanya, danau gunung tujuh dikelilingi tujuh puncak gunung di Jambi. Tidak heran kalau tempat ini menjadi destinasi wisata yang menawarkan banyak panorama keindahan. Bagi pendaki gunung, Kerinci mungkin menjadi tujuan utama karena gunung tersebut merupakan gunung aktif tertinggi di Indonesia [3805 mdpl], tetapi bagi wisatawan yang ingin sekadar menikmati keindahan alam Kabupaten Kerinci, Danau Gunung Tujuh bisa menjadi pertimbangan sebagai tujuan wisata. Selain memiliki panorama alam yang menakjubkan, jalur yang dilalui juga jauh lebih mudah daripada Gunung Kerinci. Danau Gunung Tujuh juga merupakan salah satu Danau tertinggi di Indonesia, bahkan danau tertinggi di Asia Tenggara. Danau ini berada di ketinggian 1.950 meter di atas permukaan laut dan merupakan danau yang berada diketinggian nomor dua di Indonesia setelah 13 Danau-danau kecil yang terdapat di Gunung Talamau Sumatera Barat di ketinggian 2750 m dpl. Dengan ketinggian hampir 2 kilometer dpl itu bisa dibayangkan betapa dinginnya air Danau Gunung Tujuh di pagi hari. Meskipun begitu, berendam di Danau Gunung Tujuh dengan air yang sangat dingin menjadi tantangan sendiri bagi para pendaki.",
+                img: "assets/wisata jambi.jpg"
+            },
+            baju: {
+                text: "Baju kurung tanggung merupakan pakaian adat Jambi yang dipakai oleh laki-laki dan perempuan Jambi untuk acara pernikahan. Ciri khas dari pakaian ini mengedepankan motif yang terdiri dari pucuk rebung, bunga melati, dan bunga tagapo. Motif tersebut berhiaskan sulaman emas yang menyimbolkan kekayaan tanah Melayu. Teknik pembuatan pakaian adat ini yaitu dengan tenun dan bordir. Para laki-laki Melayu Jambi mengenakan lacak atau penutup kepala yang terbuat dari kain beludru merah yang di bagian dalamnya diberi kertas karton. Dikutip dari situs Kementerian Pendidikan dan Kebudayaan (Kemdikbud), tujuan dari pemberian kertas karton pada baju kurung tanggung pada pria dimaksudkan agar kain dapat ditegakan menjulang tinggi ke atas. Sebagai hiasan, lacak umumnya akan dilengkapi dengan flora, yaitu tali runci di sisi kiri dan bungo runci di sisi kanan. Bungo runci dapat berupa bunga asli maupun bunga tiruan. Sedangkan untuk pakaian adat perempuan adalah kain sarung songket dan selendang berwarna merah. Motif hiasannya adalah melati, pucuk rebung dan kembang tagapo. Penutup kepala untuk perempuan bernama pesangkon yang bagian dalam diberi kertas karton agar keras.",
+                img: "assets/baju jambi.jpg"
+            }
+        },
+
+        sumsel: {
+            title: "Provinsi Sumatera Selatan",
+            rumah: {
+                text: "Rumah Limas merupakan rumah tradisional Sumatera Selatan. Selain ditandai dengan atapnya yang berbentuk limas, rumah tradisional ini memiliki lantai bertingkat-tingkat yang disebut Bengkilas atau Kijing dan hanya dipergunakan untuk kepentingan keluarga seperti hajatan. Para tamu biasanya diterima diteras atau lantai kedua. Rumah Limas ini memiliki nama lain, yaitu Rumah Bari. Di Malaysia, rumah Limas ini juga banyak ditemukan di daerah Johor, Selangor dan Terengganu. konstruksi rumah limas adalah bentuk rumah panggung, di rumah ini banyak ditemukan berbagai ragam hias, yang menunjukkan identitas adat masyarakat.",
+                img: "assets/rumah palembang.jpg"
+            },
+            tarian: {
+                text: "Tari Gending Sriwijaya merupakan tari yang melukiskan kegembiraan gadis-gadis Palembang saat menerima tamu yang diagungkan. Tepak yang berisi kapur, sirih, pinang dan ramuan lainnya dipersembahkan sebagai ungkapan rasa bahagia, Tari Gending Sriwijaya diiringi Gamelan dan lagu Gending Sriwijaya. Tarian yang khas ini mencerminkan sikap tuan rumah yang ramah, gembira dan bahagia, tulus dan terbuka terhadap tamu yang istimewa itu. Tarian digelarkan 9 penari muda dan cantik-cantik yang berbusana Adat Aesan Gede, Selendang Mantri, paksangkong, Dodot dan Tanggai. Mereka merupakan penari inti yang dikawal dua penari lainnya membawa payung dan tombak. Sedang di belakang sekali adalah penyanyi Gending Sriwijaya. Namun saat ini peran penyanyi dan musik pengiring ini sudah lebih banyak digantikan tape recorder. Dalam bentuk aslinya musik pengiring ini terdiri dari gamelan dan gong. Sedang peran pengawal terkadang ditiadakan, terutama apabila tarian itu dipertunjukkan dalam gedung atau panggung tertutup. Penari paling depan membawa tepak sebagai Sekapur Sirih untuk dipersembahkan kepada tamu istimewa yang datang, diiringi dua penari yang membawa pridon terbuat dari kuningan. Persembahan Sekapur Sirih ini menurut aslinya dilakukan oleh putri saja. Sultan atau bangsawan.",
+                img: "assets/tari palembang.webp"
+            },
+            wisata: {
+                text: "Jembatan Ampera (Amanat Penderitaan Rakyat) adalah sebuah jembatan di Kota Palembang, Sumatera Selatan, Indonesia. Jembatan Ampera, yang telah menjadi semacam lambang kota, terletak di tengah-tengah Kota Palembang, menghubungkan daerah Seberang Ulu dan Seberang Ilir yang dipisahkan oleh Sungai Musi. Jembatan Ampera merupakan ikon Kota Palembang yang paling terkenal.",
+                img: "assets/ampera.jpg"
+            },
+            baju: {
+                text: "Pakaian Aesan Gede (dikenakan pengantin pria) merupakan pasangan dari pakaian Pak Sangkong (dikenakan pengantin wanita). Identik dengan warna merah jambu yang dipadukan dengan ornamen keemasan, pakaian Aesan Gede melambangkan kesabaran dan kebesaran Kerajaan Sriwijaya pada masa silam. Pakaian ini terbuat dari kain songket yang umum digunakan para bangsawan. Sementara pakaian Pak Sangkong yang terbuat dari bahan beludru dipadukan dengan berbagai ornamen cantik yang sarat makna. Mahkotanya melambangkan kesucian dan kepercayaan kepada Tuhan, kembang ure melambangkan pentingnya kedudukan perempuan di dalam keluarga.",
+                img: "assets/baju palembang.jpg"
+            }
+        },
+
+        bangka: {
+            title: "Provinsi Bangka Belitung",
+            rumah: {
+                text: "Rumah Rakit merupakan salah satu rumah adat Bangka Belitung. Rumah rakit ini dibangun dengan menggunakan bahan bambu. Masyarakat setempat meyakini bagi yang mempunyai rumah adat ini bahwa sungai itu menjadi mata pencaharian mereka dan sumber air mereka.Penyebab rumah adat ini dibuat juga karena keberadaan sungai Musi. Penamaan rumah rakit juga karena bangunannya menyerupai bangunan rakit yang lengkap. Ada juga yang mengatakan bahwa rumah adat ini sudah ada sejak kerajaan Sriwijaya. ",
+                img: "assets/rumah rakit.png"
+            },
+            tarian: {
+                text: "Tari Campak merupakan tarian dari daerah Bangka-Belitung yang menggambarkan keceriaan bujang dan dayang di Kepulauan Bangka Belitung. Tarian ini biasanya dibawakan setelah panen padi atau sepulang dari ume (kebun). Tari ini digunakan juga sebagai hiburan dalam berbagai kegiatan seperti penyambutan tamu atau pada pesta pernikahan di Bangka Belitung. Tarian ini berkembang pada masa pendudukan bangsa Portugis di Bangka Belitung. Hal ini bisa dilihat dari beberapa ragam pada tari Campak antara lain akordion dan pakaian pada penari perempuan yang sangat kental dengan gaya Eropa.",
+                img: "assets/tari bangka.jpg"
+            },
+            wisata: {
+                text: "Pantai Parai Tenggiri adalah salah satu objek wisata yang terletak di Kecamatan Sungai Liat, Kabupaten Bangka, Kepulauan Bangka Belitung. Tepatnya berada di Desa Sinar Baru yang kira-kira berjarak 30 kilometer di sebelah utara kota Pangkalpinang. Pantai ini memiliki kontur tanah yang landai dengan ombak yang relatif kecil. Pantai ini merupakan pantai andalan yang ada di kepulauan Bangka Belitung. Kawasan pantai ini ditetapkan sebagai kawasan wisata hijau atau yang terkenal dengan sebutan Parai green resort. Hal ini disebabkan karena pengelola sangat memiliki kepedulian yang besar terhadap usaha penyelamatan lingkungan, yakni dengan cara mengurangi penggunaan bahan-bahan yang dapat mencemari wilayah pantai. Sebagai contohnya adalah mengurangi pemakaian plastik dan menanam banyak pohon di kawasan pantai. Pengelola di lokasi ini juga sangat memperhatikan faktor keamanan dan kenyamanan wisatawannya. Hal ini terlihat dari lingkungan pantai yang bersih dan tertata asri serta beberapa penjaga pantai yang memantau pengunjung yang berenang, agar tidak terjadi hal-hal yang tak diinginkan.",
+                img: "assets/wisata bangka.jpg"
+            },
+            baju: {
+                text: "Nama baju adat Bangka Belitung adalah baju seting dan kain cual. Pakaian adat tersebut digunakan untuk acara kebesaran dan pakaian pengantin. Berikut penjelasan tentang baju seting dan kain cual. Baju seting dan kain cual adalah nama pakaian adat Bangka Belitung. Pakaian adat ini merupakan perpaduan antara kebudayaan Arab dan Tionghoa. Umumnya, baju seting dan kain cual dipakai untuk acara pernikahan. Berdasarkan Ensiklopedi Pakaian Nusantara: Kalimantan Timur hingga Nusa Tenggara Barat, menurut kepercayaan penduduk Bangka Belitung, pakaian adat ini awalnya dibawa oleh saudagar Arab. Kemudian saudagar Arab itu menikah dengan gadis Cina di sekitar Kota Muntok. Kepercayaan tersebut membuat masyarakat asli Bangka Belitung membuat jenis pakaian yang sama. Oleh sebab itu, baju seting dan kain cual merupakan akulturasi dari kebudayaan Arab, Tionghoa, dan Melayu.",
+                img: "assets/baju bangka.jpg"
+            }
+        },
+
+        bengkulu: {
+            title: "Provinsi Bengkulu",
+            rumah: {
+                text: "Rumah Bubungan Lima adalah rumah adat dari provinsi Bengkulu. Rumah ini memiliki model seperti rumah panggung yang ditopang oleh beberapa tiang penopang. Rumah ini bukanlah rumah tinggal seperti pada umumnya. Biasanya rumah ini digunakan untuk acara adat masyarakat Bengkulu.Rumah ini terbagi atas tiga bagian yaitu rumah bagian atas, rumah bagian tengah, dan rumah bagian bawah. Rumah Bubungan Lima memiliki materi dasar yaitu kayu. Kayu yang dipilih pun bukan kayu sembarangan melainkan kayu yang kuat dan tahan lama. Kayu yang biasanya digunakan untuk membangun Rumah Bubungan Lima adalah Kayu Medang Kemuning. Rumah Bubungan Lima dibangun tinggi agar pemilik rumah beserta keluarga terhindar dari serangan binatang liar dan dari bencana alam seperti banjir. Karena Rumah Bubungan Lima ini cukup tinggi, maka orang-orang yang hendak masuk ke dalam rumah pun harus menggunakan tangga. Tangga yang digunakan untuk masuk ke dalam rumah umumnya mempunyai jumlah anak tangga yang ganjil sesuai dengan kepercayaan masyarakat Bengkulu. Rumah Bubungan Lima ini merupakan salah satu Budaya Indonesia yang menjadi objek wisata. Pada zaman dahulu rumah bubungan lima menjadi tempat tinggal para raja ataupun kaum bangsawan.",
+                img: "assets/rumah bengkulu.jpeg"
+            },
+            tarian: {
+                text: "Zaman dahulu, tari ini biasanya digunakan sebagai sarana mencari jodoh setelah selesai panen padi. Namun, sejak tahun 1970-an, tari Andun mulai jarang ditampilkan. Secara khusus, tari Andun biasanya ditampilkan pada saat andun bimbang atau pesta perkawinan. Dalam rangkaian acara bimbang, tari ini biasanya didahului oleh tari Kebanyakan yang dilakukan oleh para laki-laki. Pertunjukan tari Andun juga merupakan bagian dari persyaratan wajib dalam pelaksanaan upacara adat nundang padi. Tarian ini biasanya dilakukan secara berpasangan pada malam hari oleh laki-laki dan perempuan muda secara berpasangan, serta diringi musik kolintang. Jumlah penari biasanya disesuaikan dengan kebutuhan. Untuk upacara adat, siapa saja diperbolehkan untuk ikut menari. Sedangkan untuk pertunjukan tari, biasanya jumlah penari disesuaikan dengan kelompok tari yang akan menampilkannya. Tari Andun ditampilkan di lapangan terbuka. Gerak tarinya berupa gerak sembah, gerak puji dan gerak saling tindih. Nilai yang disampaikan dalam tari Andun adalah nilai kebersamaan dan gotong royong dalam bermasyarakat untuk mencapai tujuan bersama. Para penari tari andun yang perempuan menggunakan baju beludru merah, kain songket, dan sunting jurai. Para penari laki-lakinya menggunakan songket pendek, celana panjang, jas, dan destar. Properti tari yang digunakan adalah kipas dan selendang. Tari Andun diiringi dengan musik yang dihasilkan dari suara kolintang dan rebana.",
+                img: "assets/tari bengkulu.jpg"
+            },
+            wisata: {
+                text: "Dilihat dari atas, Benteng Marlborough terlihat seperti kura-kura: kepala kura-kura adalah pintu utama, badannya adalah benteng itu sendiri. Bentuk ini merupakan tipikal benteng dari Eropa; Marlborough merupakan benteng pertahanan Inggris yang dibangun oleh East India Company (EIC) tahun 1714-1719.Benteng ini berada di tanah seluas 44.000 meter2; Ukuran fisiknya sekitar 240 x 170 m. Ketinggian dinding bervariasi dari 8 sampai 8.50 meter, dengan ketebalan 1.85 sampai 3 meter. Pertahanan benteng terdiri dari 72 meriam. Di dalam benteng terdapat beberapa baris bangunan dengan atap berbentuk segitiga. Bangunan tersebut memiliki krepyak teras dengan barisan tiang besi. Catatan yang ada mengatakan bangunan ini difungsikan sebagai barak, penjara, dan kantor. Di bagian tengah benteng ini juga terdapat lapangan besar yang berfungsi sebagai halaman dalam.Untuk masuk ke Benteng ini kalian hanya perlu membayar tiket Rp 3000 per pengunjung. Benteng ini buka setiap harinya dari pukul 08.00 wib hingga 17.00 wib.",
+                img: "assets/benteng bengkulu.jpg"
+            },
+            baju: {
+                text: "Pakaian adat Bengkulu yang disebut Rejang Lenong, merupakan percampuran dari Melayu Jambi, Melayu Riau, Melayu Deli, Palembang, dan Lampung. Percampuran ini menghasilkan pakaian Melayu yang memiliki keunikan dan ciri khas tersendiri. Pakaian adat pria Bengkulu terdiri dari atasan berbentuk jas tertutup lengan panjang yang menggunakan bahan berkualitas seperti wol atau beludru. Celana panjang berbahan satin dengan warna senada digunakan sebagai bawahan. Biasanya, pakaian adat pria Bengkulu menggunakan warna-warna seperti hitam, merah tua, atau biru tua.",
+                img: "assets/baju bengkulu.jpg"
+            }
+        },
+
+        lampung: {
+            title: "Provinsi Lampung",
+            rumah: {
+                text: "Nuwo Sesat adalah salah satu rumah tradisional yang ada di Provinsi Lampung. Nuwo Sesat berfungsi sebagai tempat pertemuan adat bagi para purwatin (Penyimbang) pada saat mengadakan pepung adat (Musyawarah). Karena itu rumah tradisional ini juga disebut Balai Agung. Bagian-bagian dari rumah tradisional ini adalah Anjungan yang merupakan serambi yang digunakan untuk pertemuan kecil, Pusiban adalah ruang dalam yang digunakan sebagai tempat musyawarah resmi, ruang Tetabuhan adalah ruangan tempat menyimpan alat musik tradisional, ruang gajah merem yang digunakan untuk tempat istirahat bagi para penyimbang, dan ijan geladak adalah tangga masuk yang dilengkapi dengan atap. Atap rumah adat ini disebut rurung agung.",
+                img: "assets/rumah lampung.jpg"
+            },
+            tarian: {
+                text: "Tari Sigeh Penguten adalah salah satu tari kreasi yang berasal dari daerah Lampung. Awalnya tari ini bernama tari Melinting dan tari Sembah, namun baik tari Melinting maupun tari Sembah telah dikukuhkan namanya menjadi tari Sigeh Penguten. Tari Sigeh Penguten adalah perpaduan budaya antara dua suku Lampung yakni Pepadun dan Saibatin. Melalui Peraturan Daerah, tari Sigeh Penguten diresmikan sebagai bagian dari budaya masyarakat Lampung yang berfungsi sebagai media komunikasi, ajang silaturahmi, dan sebagai hiburan. Umumnya tari Sigeh Penguten dilakukan sebagai tarian untuk menyambut tamu kehormatan. Tarian ini dipentaskan dalam setiap pembukaan acara baik formal maupun non formal. Tari Sigeh Penguten memiliki keunikan tersendiri yang terdapat pada gerak, iringan, tata rias dan busana.Tari Sigeh Penguten memiliki makna yang terkandung didalamnya. Makna tersebut adalah makna gerak yang mengandung falsafah Melayu Piil Pesengiri, iringan sebagai persembahan, tata rias yang memiliki makna keceriaan dan busana yang mewakili kedua suku yakni Pepadun dan Saibatin. Selain itu properti yang digunakan dalam tari Sigeh Penguten memiliki makna tersendiri dalam penggunaannya. Tepak berisi sekapur sirih, nantinya akan diberikan kepada salah satu tamu yang dianggap mewakili seluruh tamu. Hal ini sebagai ucapan selamat datang dan terima kasih dari tuan rumah kepada para tamu yang telah hadir dalam acara tersebut.",
+                img: "assets/tari lampung.jpg"
+            },
+            wisata: {
+                text: "Taman Nasional Way Kambas (TNWK) adalah taman nasional perlindungan gajah yang terletak di daerah Lampung tepatnya di Kecamatan Labuhan Ratu, Lampung Timur, Indonesia. Selain di Way Kambas, sekolah gajah (Pusat Latihan Gajah) juga bisa ditemui di Minas, Riau. Gajah Sumatra (Elephas maximus sumatranus) yang hidup di kawasan ini semakin berkurang jumlahnya. Taman Nasional Way Kambas berdiri pada tahun 1985 merupakan sekolah gajah pertama di Indonesia. Awalnya, sekolah gajah bernama Pusat Latihan Gajah (PLG) namun setelah beberapa tahun terakhir namanya berubah menjadi Pusat Konservasi Gajah (PKG) yang diharapkan mampu menjadi pusat konservasi gajah dalam penjinakan, pelatihan, perkembangbiakan dan konservasi. Hingga sekarang PKG ini telah melatih sekitar 300 ekor gajah yang sudah disebar ke seluruh penjuru Tanah Air. Di Way Kambas juga terdapat International Rhino Foundation yang bertugas menjaga spesies badak agar tidak terancam punah.",
+                img: "assets/wisata lampung.jpeg"
+            },
+            baju: {
+                text: "Kain Tapis merupakan salah satu kerajinan tradisional masyarakat Lampung berupa sarung yang diberi sulaman. Kain tapis dibuat dari benang katun dan benang emas. Benang katun adalah benang yang berasal dari bahan kapas dan digunakan sebagai bahan dasar dalam pembuatan kain tapis, sedangkan benang emas dipakai untuk membuat ragam hias pada tapis dengan sistem sulam. Kain tapis pada awalnya dibuat sebagai bentuk penghormatan kepada leluhur. Seiring berjalannya waktu, kain tapis digunakan oleh masyarakat Lampung untuk menghadiri acara-acara adat. Pada masa sekarang, masyarakat Lampung maupun masyarakat pendatang juga menggunakan kain tapis ketika menghadiri upacara pernikahan.",
+                img: "assets/baju lampung.jpeg"
+            }
+        },
+
+        banten: {
+            title: "Provinsi Banten",
+            rumah: {
+                text: "Imah Baduy adalah rumah adat dari provinsi Banten. Hal ini didasarkan pada rumah adat yang dimiliki oleh suku Badui. Suku Baduy/Badui merupakan kelompok etnis masyarakat adat suku Banten di wilayah Kabupaten Lebak, Banten. Bentuk rumah adat Badui sering di sebut dengan istilah Julang Ngapak. Secara umum rumah adat Badui memilki gaya bangunan seperti rumah panggung. Bahan yang bisa digunakan untuk bangunan rumah adat Badui adalah bambu. Rumah adat Badui merupakan simbol kesederhanaan dari masyarakatnya. Adapun keutamaan yang ingin didapat dari bangunan rumah ini adalah fungsi perlindungan dan kenyamanan. Selain itu semangat kekeluargaan di suku Badui masih sangat kental, sehingga dalam proses pembangunan rumah adat Badui melibatkan warga sekitar dengan cara gotong royong.",
+                img: "assets/rumah banten.jpeg"
+            },
+            tarian: {
+                text: "Bedug terdapat di hampir setiap masjid, sebagai alat atau media informasi datangnya waktu shalat wajib 5 waktu. Kata “Rampak” mengandung arti “Serempak”. Jadi “Rampak Bedug” adalah seni bedug dengan menggunakan waditra berupa “banyak” bedug dan ditabuh secara “serempak” sehingga menghasilkan irama khas yang enak didengar. Rampak bedug hanya terdapat di daerah Banten sebagai ciri khas seni budaya Banten. Rampak bedug pertama kali dimaksudkan untuk menyambut bulan suci Ramadhan dan Hari Raya Idul Fitri, persis seperti seni ngabedug atau ngadulag. Tapi karena merupakan suatu kreasi seni yang genial dan mengundang perhatian penonton, maka seni rampak bedug ini berubah menjadi suatu seni yang layak jual, sama dengan seni-seni musik komersial lainnya. Walau para pencetus dan pemainnya lebih didasari oleh motivasi religi, tapi masyarakat seniman dan pencipta seni memandang seni rampak bedug sebagai sebuah karya seni yang patut dihargai.",
+                img: "assets/tari banten.jpg"
+            },
+            wisata: {
+                text: "Taman Nasional Ujung Kulon terletak di Semenanjung Ujung Kulon, bagian paling barat di Pulau Jawa, Indonesia. Kawasan taman nasional ini pada mulanya meliputi wilayah Krakatau dan beberapa pulau kecil di sekitarnya seperti Pulau Handeuleum dan Pulau Peucang dan Pulau Panaitan. Kawasan taman nasional ini mempunyai luas sekitar 122.956 Ha; (443 km² di antaranya adalah laut), yang dimulai dari tanah genting Semenanjung Ujung Kulon sampai dengan Samudra Hindia. Pada awalnya Ujung Kulon adalah daerah pertanian pada beberapa masa sampai akhirnya hancur lebur dan habis seluruh penduduknya ketika Letusan Gunung Krakatau pada tanggal 27 Agustus 1883 yang akhirnya mengubahnya kawasan ini kembali menjadi hutan. Tiket masuk ke Taman Nasional ini dapat diperoleh di kantor Balai Taman Nasional di Labuan atau di pos Tamanjaya. Fasilitas penginapan terdapat di desa Tamanjaya, Pulau Handeuleum dan Pulau Peucang.",
+                img: "assets/wisata banten.jpg"
+            },
+            baju: {
+                text: "Pangsi adalah salah satu pakaian adat Sunda. Pangsi merupakan setelan pakaian berupa baju kemeja polos yang agak longgar serta celana yang juga longgar dan panjangnya tidak melebihi mata kaki. Pakaian ini umumnya dipakai oleh laki-laki dan merupakan pakaian khas dari beberapa suku di Indonesia, terutama Betawi dan Sunda. Dalam kultur Betawi, pangsi digunakan oleh jawara atau pemuka masyarakat. Sementara dalam kultur Sunda, Pangsi merupakan pakaian bagi laki-laki yang termasuk ke dalam kelompok atau golongan rakyat biasa. Adapun suku bangsa lain di Indonesia yang juga menggunakan pangsi adalah Suku Melayu. Pangsi pada awalnya hanya merujuk kepada celana longgar, sehingga sering disebut celana Pangsi. Seiring berjalannya waktu Pangsi merujuk terhadap setiap setelan pakaian yang memakai celana Pangsi sebagai bawahan, sehingga baju yang dipakai pun ikut disebut sebagai baju Pangsi meskipun baju tersebut memiliki nama sendiri.",
+                img: "assets/baju banten.png"
+            }
+        },
+
+        jakarta: {
+            title: "Provinsi DKI Jakarta",
+            rumah: {
+                text: "Rumah kebaya adalah sebuah nama rumah adat suku Betawi. Disebut dengan rumah kebaya karena bentuk atapnya yang menyerupai pelana yang dilipat dan apabila dilihat dari samping maka lipatan-lipatan tersebut terlihat seperti lipatan kebaya. Selain Rumah Kebaya, suku Betawi juga memiliki rumah adat lainnya, seperti Rumah Gudang, Rumah Joglo, dan Rumah Panggung. Ciri khas dari rumah ini adalah rumah ini memiliki teras yang luas yang berguna untuk menjamu tamu dan menjadi tempat bersantai keluarga. Pada zaman dahulu, masyarakat betawi membuat sumur di depan rumahnya dan pemakaman yang berada disamping rumah. Dan, dinding rumahnya terbuat dari panel-panel yang dapat dibuka dan digeser-geser ke tepinya. Hal ini dimaksudkan agar rumah terasa lebih luas.Rumah ini dapat dibedakan menjadi 2 bagian dari segi sifatnya, yakni bagian depan bersifat semi publik, sehingga setiap orang dapat melihat betapa asri dan sejuknya rumah tersebut. Dan yang kedua adalah bagian belakang yang bersifat pribadi. Bagian ini hanya boleh dilihat oleh orang-orang dekat dari pihak pemilik rumah.",
+                img: "assets/rumah jakarta.jpg"
+            },
+            tarian: {
+                text: "Tari topeng Betawi ( Betawi : Topèng Betawi ) adalah bentuk teater tari dan drama masyarakat Betawi di Jakarta , Indonesia .  Tari-drama ini meliputi tari, musik, bebodoran (komedi) dan lakon (drama). Tari topeng Betawi menunjukkan tema kehidupan masyarakat Betawi yang direpresentasikan dalam bentuk tari dan drama. Disebut tari topeng karena para penari menggunakan topeng (topeng) selama menari dan orang Betawi percaya bahwa topeng memiliki kekuatan magis.",
+                img: "assets/tari jakarta.jpg"
+            },
+            wisata: {
+                text: "Monumen Nasional atau yang disingkat dengan Monas atau Tugu Monas adalah monumen peringatan setinggi 132 meter (433 kaki) yang terletak tepat di tengah Lapangan Medan Merdeka, Jakarta Pusat. Monas didirikan untuk mengenang perlawanan dan perjuangan rakyat Indonesia dalam merebut kemerdekaan dari pemerintahan kolonial Kerajaan Belanda. Pembangunan dimulai pada 17 Agustus 1961 di bawah perintah Presiden Soekarno dan diresmikan hingga dibuka untuk umum pada 12 Juli 1975 oleh Presiden Soeharto. Tugu ini dimahkotai lidah api yang dilapisi lembaran emas yang melambangkan semangat perjuangan yang menyala-nyala dari rakyat Indonesia. Tugu Monumen Nasional dan museum buka setiap hari mulai pukul 06:00 hingga 16:00 WIB (UTC+7) sepanjang minggu kecuali hari Senin saat tugu tutup.",
+                img: "assets/monas.jpg"
+            },
+            baju: {
+                text: "Baju Sadariah merupakan salah satu baju khas adat Betawi yang digunakan oleh pria dan sering dipasangkan dengan baju Kurung. Resmi sebagai baju tradisional Betawi, baju Sadariah ini juga disebut sebagai baju gunting Cina dan sering dipakai bersamaan dengan terompah, peci hitam atau merah. Sementara itu, untuk bagian bawah baju Sadariah ini menggunakan celana longgar bermotif. Celana pada baju Sadariah ini juga bisa disebut Komprang, yang mana memiliki potongan longgar dan bermotif batik parang. Bukan cuma untuk acara tertentu aja, ternyata awalnya baju Sadariah ini digunakan untuk kegiatan keagamaan, loh. Misalnya, saat para pria ke masjid atau sedekahan. Tapi, akhirnya baju yang juga dinamakan tikim dan koko ini dipakai untuk keperluan sehari-hari atau resmi. Adapun sejarah pada baju Sadariah ini adalah bentuknya yang berkembang dari pesantren, sebab tempat tersebut dijadikan sebagai pusat pendidikan dunia dan akhirat. Disamping itu, pesantren biasanya melekat dengan ilmu bela diri silat. Maka dari itu, baju Sadariah ini dibuat dengan warna yang polos, sedangkan celana memiliki motif batik dan berpotongan panjang serta longgar.",
+                img: "assets/baju jakarta.jpg"
+            }
+        },
+
+        jabar: {
+            title: "Provinsi Jawa Barat",
+            rumah: {
+                text: "Julang ngapak adalah salah satu jenis gaya bangunan rumah khas Sunda, yang dalam bahasa Indonesia Julang Ngapak memiliki arti burung yang sedang mengepakkan sayap. Arti tersebut berasal dari kata julang yang berarti burung dan ngapak berarti mengepakkan (dalam bahasa Sunda). Rumah adat satu ini dinamakan Julang Ngapak karena desain atap rumahnya yang persis seperti seekor burung yang sedang mengepakkan sayapnya. Bentuk atapnya melebar pada setiap sisi, dan pada bagian atasnya berbentuk huruf 'V' sehingga secara keseluruhannya rumah adat ini menyerupai burung yang sedang mengepakkan sayap. Ciri khas lain dari rumah adat Julang Ngapak ini adalah pada bagian bubungannya yang terdapat pelengkap atap berbentuk cagak gunting atau capit hurang. Fungsi dari capit gunting atau capit hurang ini adalah sebagai antisipasi atau pencegahan air hujan yang merembes, utamanya pada bagian pertemuan antara atap.",
+                img: "assets/rumah jabar.jpg"
+            },
+            tarian: {
+                text: "Jaipongan terlahir melalui proses kreatif dari tangan dingin H. Suanda sekitar tahun 1976 di Karawang. Jaipongan merupakan garapan yang menggabungkan beberapa elemen seni tradisi Karawang seperti pencak silat, wayang golek, topeng banjet, ketuk tilu dan lain-lain. Jaipongan di Karawang pesat pertumbuhannya di mulai tahun 1976, ditandai dengan munculnya rekaman Jaipongan SUANDA GROUP dengan instrumen musik sederhana yang terdiri dari gendang, ketuk, kecrek, goong, rebab dan sinden atau juru kawih. Dengan media kaset rekaman tanpa label tersebut (indi label), Jaipongan mulai didistribusikan secara swadaya oleh H. Suanda di wilayah Karawang dan sekitarnya. Tak disangka Jaipongan mendapat sambutan hangat. Selanjutnya, Jaipongan menjadi sarana hiburan masyarakat Karawang dan mendapatkan apresiasi yang cukup besar dari segenap masyarakat Karawang dan menjadi fenomena baru dalam ruang seni budaya Karawang, khususnya seni pertunjukan hiburan rakyat. Posisi Jaipongan pada saat itu menjadi seni pertunjukan hiburan alternatif dari seni tradisi yang sudah tumbuh dan berkembang lebih dulu di Karawang seperti pencak silat, topeng banjet, ketuk tilu, tarling dan wayang golek. Keberadaan jaipong memberikan warna dan corak yang baru dan berbeda dalam bentuk pengemasannya, mulai dari penataan pada komposisi musikalnya hingga dalam bentuk komposisi tariannya.",
+                img: "assets/tari jabar.jpg"
+            },
+            wisata: {
+                text: "Kawah Putih adalah sebuah tempat wisata di Jawa Barat yang terletak di Desa Alam Endah, Kecamatan Rancabali, Kabupaten Bandung Jawa Barat yang terletak di kaki Gunung Patuha. Kawah putih merupakan sebuah danau yang terbentuk dari letusan Gunung Patuha. Tanah yang bercampur belerang di sekitar kawah ini berwarna putih, lalu warna air yang berada di kawah ini berwarna putih kehijauan, yang unik dari kawah ini adalah airnya kadang berubah warna. Danau Kawah Putih sendiri berada pada ketinggian 2194 m tapi luas total Danau Kawah Putih 25 ha yang dipakai wisata 5 ha dan lokasi kawah sendiri 3 ha. Perairannya yang berwarna biru kristal berubah dengan kondisi cuaca, dan dilapisi dengan pasir putih halus, memberikan pengunjung pengalaman dunia lain. Bahkan vegetasi di sekitar area ini sangat berbeda dengan yang di bawah.",
+                img: "assets/wisata jabar.jpeg"
+            },
+            baju: {
+                text: "Menurut sejarahnya, Nama 'Kabaya' sendiri berasal dari kata serapan Arab 'kaba' atau 'qaba' yang berarti 'pakaian' dan 'abaya' yang berarti jubah atau garmen longgar. Seiring perkembangan zaman, nama ini kemudian mengalami perubahan menjadi cabaya yang diserap dari Bahasa Eropa. Pada periode terakhir Kerajaan Majapahit, pengaruh Islam mulai berkembang di wilayah Jawa. Para perempuan yang semula menggunakan Kemben, mulai menggunakan Kabaya dengan kain yang menutup bahu dan lengan panjang. Sekitar tahun 1500-1600, kebaya mulai memasuki lingkup kerajaan dan dipakai oleh keluarga menak sebagai pakaian resmi pada acara-acara tertentu. Dahulu, kaum bangsawan Sunda menggunakan Kebaya dengan corak hitam beludru berhiaskan benang emas, kain kebat bermotif rereng, dan selop. Pada tahun 1800-an, bersamaan dengan masuknya era pemerintahan Belanda di Indonesia,  penggunaan Kebaya mulai diperuntukan berdasarkan kelas sosial. Masyarakat dari kalangan keraton dan kerajaan menggunakan Kebaya berbahan beludru dan sutera, sementara keturunan bangsa asing menggunakan kebaya berbahan katun dengan potongan lengan pendek, kemudian masyarakat kalangan bawah menggunakan kebaya berbahan tenun dengan harga murah. Kebaya sebagai pakaian  juga memiliki makna mendalam bagi perempuan pada masa itu. Kebaya merupakan simbol kelembutan, kepatuhan dan harga diri seorang perempuan. Hingga kini, penggunaan kebaya sebagai pakaian wanita telah berkembang sesuai perubahan zaman. Kebaya diproduksi dengan motif beragam dengan corak modern. ",
+                img: "assets/baju jabar.png"
+            }
+        },
+
+        jateng: {
+            title: "Provinsi Jawa Tengah",
+            rumah: {
+                text: "Rumah adat dari Jawa Tengah adalah joglo. Rumah joglo merupakan salah satu budaya Indonesia. Setiap daerah di Indonesia memiliki rumah adat yang berbeda-beda. Hal tersebut terlihat dari model tampilan rumah, bentuk, hingga berbagai ornamen pada masing-masing rumah adat yang memiliki filosofi tersendiri. Rumah adat dari Jawa Tengah adalah joglo yang masih dipertahankan hingga saat ini. Rumah adat dari Jawa Tengah adalah joglo memiliki filosofi dan sejarah yang amat panjang. Rumah adat dari Jawa Tengah adalah joglo memiliki ciri khas yakni terbuat dari kayu jati. Sayangnya, kayu jati kini susah untuk dicari, sehingga rumah adat dari Jawa Tengah adalah joglo ini jarang ditemui. Tak hanya itu, dengan perkembangan jaman para milenial lebih memilih membangun rumah dengan style modern ketimbang rumah adat kuno atau jadul.",
+                img: "assets/rumah jateng.jpg"
+            },
+            tarian: {
+                text: "Gambyong merupakan salah satu bentuk tarian Jawa klasik yang berasal dari wilayah Surakarta dan biasanya dibawakan untuk pertunjukan atau menyambut tamu. Gambyong bukanlah satu tarian saja melainkan terdiri dari bermacam-macam koreografi, yang paling dikenal adalah Tari Gambyong Pareanom (dengan beberapa variasi) dan Tari Gambyong Pangkur (dengan beberapa variasi). Meskipun banyak macamnya, tarian ini memiliki dasar gerakan yang sama, yaitu gerakan tarian tayub/tlèdhèk. Pada dasarnya, gambyong dicipta untuk penari tunggal, tetapi sekarang lebih sering dibawakan oleh beberapa penari dengan menambahkan unsur blocking panggung sehingga melibatkan garis dan gerak yang serba besar.",
+                img: "assets/tari jateng.jpeg"
+            },
+            wisata: {
+                text: "Candi Borobudur  adalah sebuah candi Buddha yang terletak di Borobudur, Magelang, Jawa Tengah, Indonesia. Candi ini terletak kurang lebih 100 km di sebelah barat daya Semarang, 86 km di sebelah barat Surakarta, dan 40 km di sebelah barat laut Yogyakarta. Candi dengan banyak stupa ini didirikan oleh para penganut agama Buddha Mahayana sekitar tahun 800-an Masehi pada masa pemerintahan wangsa Syailendra. Borobudur adalah candi atau kuil Buddha terbesar di dunia, sekaligus salah satu monumen Buddha terbesar di dunia. Monumen ini terdiri atas enam teras berbentuk bujur sangkar yang di atasnya terdapat tiga pelataran melingkar, pada dindingnya dihiasi dengan 2.672 panel relief dan aslinya terdapat 504 arca Buddha. Borobudur memiliki koleksi relief Buddha terlengkap dan terbanyak di dunia. Stupa utama terbesar terletak di tengah sekaligus memahkotai bangunan ini, dikelilingi oleh tiga barisan melingkar 72 stupa berlubang yang di dalamnya terdapat arca Buddha tengah duduk bersila dalam posisi teratai sempurna dengan mudra (sikap tangan) Dharmachakra mudra (memutar roda dharma).",
+                img: "assets/borobudur 2.jpg"
+            },
+            baju: {
+                text: "Kebaya Kartini telah menjadi simbol dari perjuangan dan kebangsawanan. Kartini, yang bernama lengkap Raden Ayu Adipati Kartini Djojoadhiningrat, sering mengenakan kebaya dalam kesehariannya. Kebaya yang dipakainya termasuk kebaya Jawa, dengan potongan garis leher V yang khas, model panjang dengan hemline lurus, dan umumnya tanpa tambahan motif. Kartini kerap memadukan kebaya dengan kain batik sebagai rok, memberikan sentuhan yang elegan dan khas. Menariknya, kebaya Kartini memiliki ciri khas tertutup, sebuah kebiasaan yang tidak lepas dari garis keturunan keluarganya. Kartini berasal dari keluarga priyayi, atau keluarga bangsawan, dengan ayah bernama Raden Mas Sosroningrat dan ibu bernama Mas Ajeng Ngasirah. Sesuai dengan norma priyayi Jawa, pakaian yang dikenakan haruslah sopan, dan inilah alasan mengapa model kebaya Kartini cenderung tertutup. Kebaya Kartini bukan hanya sekadar pakaian, tetapi juga merupakan simbol dari perjuangan dan identitas bangsa. Di setiap peringatan Hari Kartini, kebaya Kartini menjadi pilihan banyak perempuan Indonesia sebagai penghormatan atas warisan budaya dan perjuangan Kartini dalam mengangkat martabat perempuan Indonesia.  ",
+                img: "assets/baju jateng.jpeg"
+            }
+        },
+
+        yogyakarta: {
+            title: "Provinsi Daerah Istimewa Yogyakarta",
+            rumah: {
+                text: "Bangsal Kencono adalah bangsal utama Keraton Ngayogyakarta Hadiningrat. Bangsal ini berbentuk joglo atau pendopo, dikelilingi halaman yang ditumbuhi oleh tanaman, dan sangkar burung. Di depan Bangsal Kencono terdapat dua patung batu Dwarapala, dua raksasa yang memegang gada (sejenis alat pemukul)",
+                img: "assets/rumah diy.jpg"
+            },
+            tarian: {
+                text: "Srimpi atau Serimpi adalah jenis tari Jawa klasik dari tradisi keraton Kesultanan Mataram dan dilanjutkan pelestarian serta pengembangan sampai sekarang oleh empat istana pewarisnya di Surakarta dan Yogyakarta. Penyajian tari pentas ini dicirikan dengan empat penari melakukan gerak gemulai yang menggambarkan kesopanan, kehalusan budi, serta kelemahlembutan yang ditunjukkan dari gerakan yang pelan serta anggun dengan diiringi suara musik gamelan. Srimpi dianggap mempunyai kemiripan posisi sosial dengan tari Pakarena dari Makasar, yakni dilihat dari segi kelembutan gerak para penari dan sebagai tarian keraton. Sejak dari zaman kuno, tari Srimpi sudah memiliki kedudukan yang istimewa di keraton-keraton Jawa dan tidak dapat disamakan dengan tari pentas yang lain karena sifatnya yang sakral. Dahulu tari ini hanya boleh dipentaskan oleh orang-orang yang dipilih keraton. Srimpi memiliki tingkat kesakralan yang sama dengan pusaka atau benda-benda yang melambang kekuasaan raja yang berasal dari zaman Jawa Hindu, meskipun sifatnya tidak sesakral Tari Bedhaya. Dalam pagelaran, tari srimpi tidak selalu memerlukan sesajen seperti pada tari Bedhaya, melainkan hanya di waktu-waktu tertentu saja. Adapun iringan musik untuk tari Srimpi adalah mengutamakan paduan suara gabungan, yakni saat menyanyikan lagu tembang-tembang Jawa.",
+                img: "assets/tari diy.png"
+            },
+            wisata: {
+                text: "ugu Yogyakarta adalah sebuah tugu atau monumen yang sering dipakai sebagai simbol atau lambang dari Kota Yogyakarta, Daerah Istimewa Yogyakarta. Tugu yang terletak di perempatan Jalan Jenderal Sudirman dan Jalan Margo Utomo ini, mempunyai nilai simbolis yang merupakan garis yang bersifat magis yang menghubungkan Pantai Parangtritis dan Panggung Krapyak di Kabupaten Bantul, Keraton Yogyakarta di Kota Yogyakarta dan Gunung Merapi di Kabupaten Sleman. Tugu ini sekarang merupakan salah satu objek pariwisata Yogyakarta, dan sering dikenal dengan istilah “Tugu Pal Putih” (pal juga berarti tugu), karena warna cat yang digunakan sejak dulu adalah warna putih. Tugu pal ini berbentuk bulat panjang dengan bola kecil dan ujung yang runcing di bagian atasnya.",
+                img: "assets/tugu yk.jpg"
+            },
+            baju: {
+                text: "Daerah Istimewa Yogyakarta, tidak hanya kaya akan kebudayaannya yang autentik namun juga kaya akan warisan pakaian adat yang melimpah. Pakaian adat di Yogyakarta sangat beragam, mulai dari Surjan, Kebaya, Sabukwala, Peranakan, hingga Kasatrian Ageng, masing-masing mencerminkan kekayaan tradisi dan estetika yang telah diwariskan turun-temurun dari masa Kerajaan Mataram. Pakaian ini bukan hanya sekedar busana, namun juga merepresentasikan nilai sejarah dan makna filosofis yang mendalam. Tidak hanya terbatas pada upacara adat atau pernikahan, pakaian adat Yogyakarta juga kerap terlihat dalam berbagai acara wisata, kebudayaan, hingga kekerabatan. Hal ini menandakan kebanggaan yang besar dari masyarakat Yogyakarta untuk melestarikan sejarah dan budaya Indonesia. Bermacam-macam jenis pakaian adat ini menjadi simbol kehormatan dan identitas yang dikenakan dengan bangga oleh berbagai kalangan, baik pejabat keraton, penduduk setempat maupun generasi muda. Kebaya Yogyakarta adalah ikon kecantikan wanita Yogyakarta yang melambangkan kehalusan dan keanggunan. Setiap lipatan dan hiasan pada Kebaya Yogyakarta telah dipilih dengan hati-hati, dengan tujuan utama untuk menghormati dan melestarikan tradisi kultural Jawa. Kebaya Yogyakarta adalah representasi dari identitas, keindahan, dan budaya yang tetap bertahan meski dalam rentang waktu yang begitu panjang.",
+                img: "assets/baju diy.webp"
+            }
+        },
+
+        jatim: {
+            title: "Provinsi Jawa Timur",
+            rumah: {
+                text: "Joglo Situbondo adalah rumah adat provinsi Jawa Timur. Meskipun memiliki nama Joglo, tetapi rumah adat ini berbeda dengan rumah tradisional Joglo di Jawa Tengah. Tak dipungkiri juga keduanya memiliki beberapa kemiripan. Kegunaan rumah ini adalah sebagai tempat tinggal, tetapi ada juga yang memanfaatkannya sebagai peninggalan bersejarah. Hal ini dikarenakan rumah ini kental dengan budaya nenek moyang di masa lalu. Sinkretisme agama dan kepercayaan Kejawen memberikan pengaruh terhadap bentuk dan tata ruang rumah adat Joglo. Rumah Joglo Situbondo ini memiliki ciri khas dengan kesederhanaannya, namun memiliki nilai seni yang tinggi. Secara ukuran, rumah adat ini tidak terlalu besar.Rumah tradisional ini memiliki bentuk limasan atau dara gepak. Joglo Situbondo sesuai dengan namanya banyak ditemukan di daerah Situbondo, Jawa Timur. Hal inilah yang menjadikan namanya menjadi Joglo Situbondo. Namun, selain di sana, rumah adat ini juga banyak ditemukan di Ponorogo.Pada umumnya bangunan ini menggunakan kayu jati murni sebagai bahan bangunannya. Hal ini dipercayai karena kayu jati memiliki kekuatan yang besar serta memiliki daya tahan yang cukup lama. Tata bangunan rumah adat Joglo Situbondi ini mencerminkan hubungan antar sesama manusia serta manusia dengan alam sekitar. Prinsip ini tercermin jelas melalui tata bangunannya. Selain itu, kepercayaan masyarakat Jawa juga sangat banyak mempengaruhi dalam porsi pembangunan rumah adat ini. Pondasi, tiang penyangga, tanah yang diratakan serta dibuat lebih tinggi dari sekelilingnya merupakan beberapa hal yang mencerminkan pengaruh budaya Jawa dalam pembangunan rumah adat ini.",
+                img: "assets/rumah jatim.jpg"
+            },
+            tarian: {
+                text: "Reog merupakan salah satu seni budaya yang berasal dari Jawa Timur bagian barat-laut, dan Ponorogo dianggap sebagai kota asal Reog yang sebenarnya. Gerbang kota Ponorogo dihiasi oleh sosok warok dan gemblak, dua sosok yang ikut tampil pada saat Reog dipertunjukkan. Reog adalah salah satu budaya daerah di Indonesia yang masih sangat kental dengan hal-hal yang berbau mistik dan ilmu kebatinan yang kuat. Tarian tradisional dalam arena terbuka yang berfungsi sebagai hiburan rakyat, mengandung unsur magis, penari utama adalah orang berkepala singa dengan hiasan bulu merak, ditambah beberapa penari bertopeng dan berkuda lumping. Ada dua ragam bentuk reog Ponorogo yang dikenal saat ini, yakni Reog Obyog dan Reog Festival. Reog modern biasanya dipentaskan dalam beberapa acara seperti pernikahan, khitanan, dan hari-hari besar Nasional. Seni Reog Ponorogo terdiri dari beberapa rangkaian 2 sampai 3 tarian pembukaan. Reog obyog Sering pentas di pelataran atau jalan tanpa mengikuti pakem tertentu. Biasanya mengisi acara hajatan, bersih desa, hingga pementasan semata untuk menghibur. Sedangkan Reog Festival sudah mengalami modifikasi dan ditampilkan sesuai pakem dalam acara tahunan Festival Reog yang diadakan Pemerintah Kota Ponorogo sejak 1997. Reog Ponorogo resmi menjadi Warisan Budaya Tak benda (WBTb) UNESCO (United Nations Educational, Scientific and Cultural Organization) pada tahun 2024. ",
+                img: "assets/tari jatim.jpg"
+            },
+            wisata: {
+                text: "Gunung Bromo atau dalam bahasa Tengger dieja 'Brama', juga disebut Kaldera Tengger, adalah sebuah gunung berapi aktif di Jawa Timur, Indonesia. Gunung ini memiliki ketinggian 2.614 meter di atas permukaan laut dan berada dalam empat wilayah kabupaten, yakni Kabupaten Probolinggo, Kabupaten Pasuruan, Kabupaten Lumajang, dan Kabupaten Malang. Gunung Bromo terkenal sebagai objek wisata utama di Jawa Timur. Sebagai sebuah objek wisata, Bromo menjadi menarik karena statusnya sebagai gunung berapi yang masih aktif. Gunung Bromo termasuk dalam kawasan Taman Nasional Bromo Tengger Semeru. Nama Bromo berasal dari nama dewa utama dalam agama Hindu, Brahma. Bentuk tubuh Gunung Bromo bertautan antara lembah dan ngarai dengan kaldera atau lautan pasir seluas sekitar 10 kilometer persegi, Ia mempunyai sebuah kawah dengan garis tengah ± 800 meter (utara-selatan) dan ± 600 meter (timur-barat). Sedangkan daerah bahayanya berupa lingkaran dengan jari-jari 4 km dari pusat kawah Bromo.",
+                img: "assets/bromo.jpg"
+            },
+            baju: {
+                text: "Pesa'an adalah baju adat khas Jawa Timur dari Madura, provinsi Jawa Timur. Baju Pesa'an menjadi salah satu simbol utama yang menjadi wakil budaya baju adat Jawa Timur di Nusantara. Baju Pesa'an ini bisa digunakan pada acara-acara penting masyarakat Madura seperti acara upacara pernikahan ataupun acara penting lainnya. Namun, di masa lalu orang-orang Madura juga bisa menggunakan pakaian Pesa'an ini sebagai busana sehari-hari. Walaupun sering digunakan oleh penjual sate, pakaian ini mempunyai makna tersendiri. Pakaian adat Madura ini terdiri atas busana wanita dan pria. Bagi para pria terdiri atas celana longgar dan kaos bergaris merah putih yang cukup sederhana. Sedangkan untuk para wanita menggunakan kebaya dengan warna cerah yang mencolok sebagai pasangan dari busana pria. Penggunaan warna yang cerah dan terang yang kuat pada pakaian adat ini mencerminkan karakter masyarakat Madura dikenal akan keberaniannya, sikap tegas, tidak kenal ragu, serta bersikap terbuka dalam menyampaikan isi pikirannya kepada orang lain.",
+                img: "assets/baju jatim.webp"
+            }
+        },
+
+        bali: {
+            title: "Provinsi Bali",
+            rumah: {
+                text: "Rumah Gapura Candi Bentar sejatinya merujuk pada bangunan gapura yang menjadi gerbang rumah-rumah adat Bali. Gapura tersebut terdiri dari dua buah candi yang serupa dan sebangun dan membatasi sisi kiri dan sisi kanan pintu masuk ke pekarangan rumah. Gapura-gapura tersebut tidak memiliki atap penghubung pada bagian atasnya sehingga kedua sisinya terpisah sempurna, dan hanya terhubung di baagian dalam olehk-anak tangga yang menjadi jalan masuk. Gapura Candi Bentar dalam arsitektur Bali merupakan sebuah perwujudan bangunan yang berfungsi untuk masuk-keluar dari satu sisi ke sisi lainnya (dari luar ke dalam dan atau sebaliknya). Pada awalnya ketika arsitektur Bali masih sesuai dengan keadaan pada masa kerajaan, Gapura Candi Bentar hanya dibangun di lingkungan Puri (Istana Raja) dan Pura (tempat suci agama Hindu). Tidak ditemukan adanya Candi Bentar di perumahan masyarakat kebanyakan. Bentuknya merupakan gapura, atau candi yang terbelah dua tepat di tengah-tengahnya sehingga menjadi bentukan yang simetri. Baik di puri mau pun di pura, Candi Bentarmenempati posisi di areal paling luar, menjadi pembuka jalansekaligus penerimabagi mereka yang akan mengunjungitempat tersebut. Para Undagi yang mengerjaakan bangunan ini sudah memiliki kepekaan yang tinggi terhadap lingkungannya, sehingga hasil yang dicapai sesuai dengan peruntukannya.Undagi memahami betul, di mana dan kapan Candi Bentar harus tampil megah, tampil normal (akrab), kokoh dan sebagainya.",
+                img: "assets/rumah bali.jpeg"
+            },
+            tarian: {
+                text: "Kecak adalah dramatari seni khas Bali yang lebih utama menceritakan mengenai Ramayana dan dimainkan terutama oleh laki-laki. Tarian ini dipertunjukkan oleh banyak (puluhan atau lebih) penari laki-laki yang duduk berbaris melingkar dan dengan irama tertentu menyerukan 'cak' dan mengangkat kedua lengan, menggambarkan kisah Ramayana saat barisan kera membantu Rama melawan Rahwana. Namun, Kecak berasal dari ritual sanghyang, yaitu tradisi tarian yang penarinya akan berada pada kondisi  melakukan komunikasi dengan Tuhan atau roh para leluhur dan kemudian menyampaikan harapan-harapannya kepada masyarakat. Para penari yang duduk melingkar tersebut mengenakan kain kotak-kotak seperti papan catur melingkari pinggang mereka. Selain para penari itu, ada pula para penari lain yang memerankan tokoh-tokoh Ramayana seperti Rama, Shinta, Rahwana, Hanoman, dan Sugriwa. Lagu tari Kecak diambil dari ritual tarian sanghyang. Selain itu, tidak digunakan alat musik. Hanya digunakan kincringan yang dikenakan pada kaki penari yang memerankan tokoh-tok",
+                img: "assets/tari bali.jpeg"
+            },
+            wisata: {
+                text: "Pantai Kuta adalah sebuah tempat pariwisata yang terletak di kecamatan Kuta sebelah selatan Kota Denpasar, Bali, Indonesia. Daerah ini merupakan sebuah tujuan wisata turis mancanegara dan telah menjadi objek wisata andalan Pulau Bali sejak awal tahun 1970-an. Pantai Kuta sering pula disebut sebagai pantai matahari terbenam sebagai lawan dari pantai Sanur. Selain itu, Lapangan Udara I Gusti Ngurah Rai terletak tidak jauh dari Kuta.",
+                img: "assets/wisata bali.jpg"
+            },
+            baju: {
+                text: "Masyarakat Bali kerap mengenakan kebaya tradisional dalam berbagai kesempatan. Bahkan, kebaya menjadi pakaian adat yang wajib digunakan saat melakukan aktivitas sembahyang di pura. Meski berlabel sebagai pakaian tradisional, kebaya terbukti mampu menjadi salah satu pakaian favorit. Apalagi, kebaya adat yang berasal dari Bali, memiliki desain yang atraktif, tak kalah dengan baju modern.",
+                img: "assets/baju bali.jpg"
+            }
+        },
+
+        ntb: {
+            title: "Provinsi Nusa Tenggara Barat",
+            rumah: {
+                text: "Rumah Adat Dalam Loka adalah kediaman raja-raja yang berasal dari Kabupaten Sumbawa, Nusa Tenggara Barat. Rumah dalam Loka atau istana Sumbawa ini merupakan peninggalan sejarah dari kerajaan Sumbawa. Istana Dalam Loka dibangun pada tahun 1885 oleh Sultan Muhammad Jalalludin III (1983-1931). Rumah adat Dalam Loka merupakan desain asli rumah kediaman raja-raja Sumbawa. Kuatnya pengaruh budaya Islam yang masuk di wilayah ini pada masa itu telah membuat hampir seluruh aspek adat dan kesukuan masyarakat Sumbawa larut dalam nilai-nilai syariah Islam. Rumah Adat Dalam Loka berbentuk rumah panggung dengan luas bangunan 904 M2. Istana Dalam Loka terlihat sangat megah. Istana yang dibangun dengan bahan kayu ini memiliki filosofi “adat berenti ko syara, syara barenti ko kitabullah”, yang berarti semua aturan adat istiadat maupun nilai-nilai dalam sendi kehidupan tau Samawa (masyarakat Sumbawa) harus bersemangatkan pada syariat Islam.",
+                img: "assets/rumah ntb.jpg"
+            },
+            tarian: {
+                text: "Tari Gandrung adalah sebuah tarian yang dikenal dalam kebudayaan Sasak, Lombok, Nusa Tenggara Barat. Tarian ini dimainkan oleh perempuan atau laki-laki. Gandrung Lombok memiliki nama yang sama dengan tarian gandrung di Banyuwangi dan Bali. Tarian ini melambangkan sukacita dan biasanya dipertunjukan di desa selah panen raya.",
+                img: "assets/tari ntb.jpg"
+            },
+            wisata: {
+                text: "Gunung Rinjani adalah gunung yang berlokasi di Pulau Lombok, Nusa Tenggara Barat. Gunung yang merupakan gunung berapi kedua tertinggi di Indonesia dengan ketinggian 3.726 mdpl serta terletak pada lintang 8º25' LS dan 116º28' BT ini merupakan gunung favorit bagi pendaki Indonesia karena keindahan pemandangannya. Gunung ini merupakan bagian dari Taman Nasional Gunung Rinjani yang memiliki luas sekitar 41.330 ha dan diusulkan penambahannya sehingga menjadi 76.000 ha ke arah barat dan timur. Gunung Rinjani merupakan penerus dari Gunung Samalas yang pernah meletus tahun 1257 pada masa Holosen di Indonesia, yang mengakibatkan penurunan suhu global, gagal panen dan hancurnya kerajaan pamatan di wilayah Pulau Lombok. Secara administratif gunung ini berada dalam wilayah tiga kabupaten: Lombok Timur, Lombok Tengah, dan Lombok Utara.",
+                img: "assets/rinjani.jpg"
+            },
+            baju: {
+                text: "Lambung adalah pakaian adat yang berbentuk baju tanpa lengan dengan potongan sederhana dan seringkali berwarna hitam. Warna hitam melambangkan kekuatan, keagungan, dan keteguhan hati wanita Sasak dalam menjalani kehidupannya. Lambung umumnya terbuat dari kain tenun tradisional Sasak yang ditenun secara manual oleh para perajin lokal, memperlihatkan kehalusan tekstur serta keindahan corak yang sarat dengan nilai budaya. Meskipun warna hitam menjadi warna khas, kini Lambung telah mengalami adaptasi warna seiring perkembangan zaman. Warna-warna seperti biru, pink, dan warna cerah lainnya juga mulai digunakan untuk menyesuaikan selera penggunanya, tanpa mengurangi makna filosofi dan estetikanya.",
+                img: "assets/baju ntb.jpg"
+            }
+        },
+
+        ntt: {
+            title: "Provinsi Nusa Tenggara Timur",
+            rumah: {
+                text: "Rumah musalaki di Ende atau Uma Manaran yakni Umanetan Rimean di Belu adalah contoh rumah adat atau rumah tradisional yang banyak dijumpai di provinsi Nusa Tenggara Timur, Indonesia. Rumah ini sendiri menjadi lambang dari provinsi Nusa Tenggara Timur. Rumah adat ini sendiri merupakan tempat tinggal khusus bagi kepala suku dari beberapa suku di provinsi Nusa Tenggara Timur. Karena sudah menjadi lambang dari provinsi, saat ini desain bangunan pemerintahan seperti kelurahan, kecamatan, hingga kabupaten di Nusa Tenggara Timur mayoritas mengadopsi konsep dari rumah musalaki, serta di beberapa wilayah rumah ini sudah dihuni oleh masyarakat pada umumnya.",
+                img: "assets/rumah ntt.jpeg"
+            },
+            tarian: {
+                text: "Caci atau tari Caci atau adalah tari perang sekaligus permainan rakyat antara sepasang penari laki-laki yang bertarung dengan cambuk dan perisai di Flores, Nusa Tenggara Timur, Indonesia. Penari yang bersenjatakan cambuk (pecut) bertindak sebagai penyerang dan seorang lainnya bertahan dengan menggunakan perisai (tameng). Tari ini dimainkan saat syukuran musim panen (hang woja) dan ritual tahun baru (penti), upacara pembukaan lahan atau upacara adat besar lainnya, serta dipentaskan untuk menyambut tamu penting. Seorang laki-laki yang berperan sebagai pemukul (disebut paki) berusaha memecut lawan dengan pecut yang dibuat dari kulit kerbau/sapi yang dikeringkan. Pegangan pecut juga dibuat dari lilitan kulit kerbau. Di ujung pecut dipasang kulit kerbau tipis dan sudah kering dan keras yang disebut lempa atau lidi enau yang masih hijau (disebut pori). Laki-laki yang berperan sebagai penangkis (disebut ta’ang), menangkis lecutan pecut lawan dengan perisai yang disebut nggiling dan busur dari bambu berjalin rotan yang disebut agang atau tereng. Perisai berbentuk bundar, berlapis kulit kerbau yang sudah dikeringkan. Perisai dipegang dengan sebelah tangan, sementara sebelah tangan lainnya memegang busur penangkis.",
+                img: "assets/tari ntt.jpg"
+            },
+            wisata: {
+                text: "Pulau Komodo adalah sebuah pulau yang terletak di Kepulauan Nusa Tenggara, berada di sebelah timur Pulau Sumbawa, yang dipisahkan oleh Selat Sape. Pulau Komodo dikenal sebagai habitat asli hewan komodo. Pulau ini termasuk salah satu kawasan Taman Nasional Komodo yang dikelola oleh Pemerintah Pusat. Secara administratif, pulau ini termasuk wilayah Kabupaten Manggarai Barat, Kecamatan Komodo, Provinsi Nusa Tenggara Timur, Indonesia. Pulau Komodo merupakan ujung paling barat Provinsi Nusa Tenggara Timur, berbatasan dengan Provinsi Nusa Tenggara Barat.",
+                img: "assets/wisata ntt.jpg"
+            },
+            baju: {
+                text: "Tenun ikat atau kain ikat adalah kriya tenun Indonesia berupa kain yang ditenun dari helaian benang pakan atau benang lungsin yang sebelumnya diikat dan dicelupkan ke dalam zat pewarna alami. Alat tenun yang dipakai adalah alat tenun bukan mesin. Kain ikat dapat dijahit untuk dijadikan pakaian dan perlengkapan busana, kain pelapis mebel, atau penghias interior rumah. Sebelum ditenun, helai-helai benang dibungkus (diikat) dengan tali plastik sesuai dengan corak atau pola hias yang diingini. Ketika dicelup, bagian benang yang diikat dengan tali plastik tidak akan terwarnai. Tenun ikat ganda dibuat dari menenun benang pakan dan benang lungsin yang keduanya sudah diberi motif melalui teknik pengikatan sebelum dicelup ke dalam pewarna.",
+                img: "assets/baju ntt.jpeg"
+            }
+        },
+
+        kalbar: {
+            title: "Provinsi Kalimantan Barat",
+            rumah: {
+                text: "Rumah Panjang (rumah Radank) adalah salah satu rumah adat dari daerah Kalimantan Barat. Rumah Panjang adalah ciri khas dari masyarakat Dayak yang tinggal di daerah Kalimantan Barat. Hal ini dikarenakan rumah panjang adalah gambaran sosial kehidupan masyarakat Dayak di Kalimantan Barat. Rumah panjang juga merupakan pusat kehidupan dari masyarakat Dayak. Saat ini, rumah panjang di Kalimantan Barat dapat dikatakan hampir punah karena jumlahnya yang sedikit. Pada tahun 1960, pemerintah menghancurkan beberapa rumah panjang karena dicurigai menganut paham komunis.. Rumah panjang di daerah Kalimantan Barat identik dengan rumah panjang yang ada di Kalimantan Tengah. Hal ini dikarenakan letak geografi Kalimantan Barat dan Kalimantan Tengah yang sangat berdekatan. Keduanya sama-sama dikenal dengan nama Rumah Betang.",
+                img: "assets/rumah kalbar.jpg"
+            },
+            tarian: {
+                text: "Tari Monong/Manang/Baliatn, merupakan tari penyembuhan yang terdapat pada seluruh masyarakat Dayak. Tari ini berfungsi sebagai penolak/penyembuh/penangkal penyakit agar si penderita dapat sembuh kembali penari berlaku seperti dukun dengan jampi-jampi. Tarian ini hadir di saat sang dukun sedang dalam keadaan trance, dan tarian ini merupakan bagian dari upacara adat Bemanang/Balian.",
+                img: "assets/tari kalbar.jpg"
+            },
+            wisata: {
+                text: "Danau Sentarum adalah danau musiman yang berada di Kapuas Hulu, Kalimantan Barat. Danau ini dipenuhi air selama 10 bulan setiap tahunnya, dan sisanya akan surut, membentuk kolam-kolam kecil yang berisi ikan-ikan kecil. Saat kemarau, Air Danau Sentarum memasok setengah dari aliran air Sungai Kapuas. Luas keseluruhan danau ini 132.000 Ha.",
+                img: "assets/wisata kalbar.jpg"
+            },
+            baju: {
+                text: "Pakaian adat King Baba berbentuk seperti rompi yang menggunakan kain khas terbuat dari kulit kayu kapuo serta dihiasi manik-manik berwarna jingga dan merah. Sedangkan untuk pakaian adat perempuan King Bibinge terbuat dari bahan yang sama tapi menutupi hingga bagian dada dan pundak. Dikutip dari buku Pakaian Adat Tradisional Daerah Provinsi Kalimantan Barat (1990), pakaian adat laki-laki disebut King Baba dan untuk perempuan disebut King Bibinge. Pengertian King pada King Baba dimaksudkan adalah cawat, sementara King pada King Bibinge artinya hampir sama dengan pengertian rok.",
+                img: "assets/baju kalbar.webp"
+            }
+        },
+
+        kalteng: {
+            title: "Provinsi Kalimantan Tengah",
+            rumah: {
+                text: "Rumah betang adalah rumah adat khas Kalimantan yang terdapat diberbagai penjuru Kalimantan dan dihuni oleh masyarakat Dayak terutama di daerah hulu sungai yang biasanya menjadi pusat permukiman suku Dayak. Di Kalimantan Barat, rumah betang biasa disebut rumah panjang, rumah radakng, atau rumah panjai. Di Kalimantan Tengah, ada yang menyebutnya lewu. Di Kalimantan Timur, ada yang menyebutnya lou atau lamin. Di Kalimantan Utara, rumah betang dikenal dengan lamin atau baloi. Sedangkan di Kalimantan Selatan di sebut Balai.",
+                img: "assets/rumah kalteng.jpeg"
+            },
+            tarian: {
+                text: "Tari Mandau adalah tarian tradisional khas Suku Dayak Kalimantan Tengah yang menggambarkan semangat juang prajurit Dayak. Tarian ini juga dikenal sebagai tarian perang. Tari Mandau menampilkan aksi-aksi berbahaya seperti menggigit, memutar, melempar, menebas, dan gerakan saling serang. Tarian ini diiringi musik energik dari gendang, garantung, kangkanung, dan kecapi. ",
+                img: "assets/tari kalteng.jpg"
+            },
+            wisata: {
+                text: "Taman Nasional Tanjung Puting adalah sebuah taman nasional yang terletak di semenanjung barat daya provinsi Kalimantan Tengah. Tanjung Puting pada awalnya merupakan cagar alam dan suaka margasatwa yang ditetapkan oleh Pemerintah Hindia Belanda pada tahun 1937. Selanjutnya berdasarkan SK Menteri Kehutanan No. 687/Kpts-II/1996 tanggal 25 Oktober 1996, Tanjung Puting ditunjuk sebagai Taman Nasional dengan luas seluruhnya 415.040 ha.",
+                img: "assets/wisata kalteng.webp"
+            },
+            baju: {
+                text: "Baju Sangkarut adalah pakaian adat khas Suku Dayak Ngaju di Kalimantan Tengah. Baju ini berbentuk rompi yang dilapisi oleh Sulau (kerang). Baju Sangkarut memiliki filosofi bahwa baju ini bisa menangkal gangguan roh halus yang akan datang pada pemakainya. Baju ini juga merupakan simbol identitas, status sosial, dan nilai-nilai spiritual yang mendalam. ",
+                img: "assets/baju kalteng.jpg"
+            }
+        },
+
+        kalsel: {
+            title: "Provinsi Kalimantan Selatan",
+            rumah: {
+                text: "Balay Bubungan Tinggi (dalam bahasa Banjar) atau Balay Cacak Burung adalah salah satu jenis rumah Baanjung yaitu rumah tradisional suku Banjar di Kalimantan Selatan dan bisa dibilang merupakan ikonnya Rumah Banjar karena jenis rumah inilah yang paling terkenal karena menjadi maskot rumah adat khas provinsi Kalimantan Selatan. Di dalam kompleks keraton Banjar dahulu kala bangunan rumah Bubungan Tinggi merupakan pusat atau sentral dari keraton yang menjadi istana kediaman raja yang disebut Dalam Sirap yang dahulu tepat di depan rumah tersebut dibangun sebuah Balai Seba pada tahun 1780 pada masa pemerintahan Panembahan Batuah.Rumah Bubungan Tinggi mirip Rumah tardisonal Betawi yang disebut Rumah Bapang, namun pada Rumah Bubungan Tinggi dibangun dengan konstruksi panggung dan memiliki anjung pada kiri dan kanan bangunannya yang sangat mirip dengan rumah adat Maanyan.",
+                img: "assets/rumah kalsel.jpeg"
+            },
+            tarian: {
+                text: "Baksa Kembang adalah tari klasik dari Keraton Banjar di Kalimantan Selatan. Tari ini saat itu merupakan kegiatan penyambutan tamu yang dilakukan oleh putri-putri keraton Banjar. Sekarang Tari Baksa Kembang digunakan masyarakat Kalimantan Selatan untuk ditampilkan dalam kegiatan upacara pernikahan. Tari Baksa Kembang menceritakan tentang putri remaja yang cantik jelita sedang bermain-main riang gembira di taman bunga. Penari dari tarian ini dilakukan oleh wanita berjumlah ganjil , baik tunggal maupun jamak asal berjumlah ganjil. Gambaran dari tarian ini merupakan kelembutan tuan rumah dalam menyambut dan menghormati tamu. Sehingga suasana tariannya akan tampak riang gembira. Nilai yang dapat diambil dari Tarian Baksa Kembang sangat luhur. Karena kegiatan menghormati dan menghargai tamu merupakan kegiatan yang mulia. Hal ini merupakan budaya bangsa kita yang harus kita junjung tinggi. ",
+                img: "assets/tari kalsel.jpg"
+            },
+            wisata: {
+                text: "Pasar Terapung Lok Baintan atau Pasar Terapung Sungai Martapura adalah sebuah pasar terapung tradisional yang berlokasi di desa Sungai Pinang (Lok Baintan), kecamatan Sungai Tabuk, Banjar. Secara umum, Pasar Terapung Lok Baintan tak beda dengan Pasar Terapung di muara Sungai Kuin/Sungai Barito. Keduanya sama-sama pasar tradisional di atas perahu atau dalam bahasa Banjar disebut jukung yang menjual beragam dagangan, seperti hasil produksi pertanian/perkebunan dan berlangsung tidak terlalu lama, paling lama sekitar tiga hingga empat jam. Pasar terapung ini sudah ada sejak zaman Kesultanan Banjar.Di sepanjang pesisir aliran Sungai Martapura, terlihat konvoi perahu menuju lokasi pasar terapung. Perahu ini milik pedagang dan petani dari berbagai anak Sungai Martapura, seperti Sungai Lenge, Sungai Bakung, Sungai Paku Alam, Sungai Saka Bunut, Sungai Madang, Sungai Tanifah, dan Sungai Lok Baintan, dimana mereka akan memasarkan hasil kebun mereka di sana.",
+                img: "assets/wisata kalsel.jpg"
+            },
+            baju: {
+                text: "Bagajah Gamuling Baular Lulut, yaitu suatu jenis busana pengantin klasik yang berkembang sejak zaman kerajaan Hindu yang ada di Kalimantan Selatan. Pengantin wanita hanya memakai kemben yang disebut udat.",
+                img: "assets/baju kalsel.jpg"
+            }
+        },
+
+        kaltim: {
+            title: "Provinsi Kalimantan Timur",
+            rumah: {
+                text: "Rumah Lamin adalah rumah adat dari Kalimantan Timur. Istilah Lamin berasal dari bahasa Melayu Kalimantan Timur yaitu bahasa Berau dan Kutai, sedangkan dalam bahasa Dayak Kenyah disebut Amin. Istilah Lamin juga digunakan di selatan Pilifina. Bahasa Dayak Benuaq menggunakan istilah Lo'u. Rumah Lamin adalah identitas masyarakat Dayakdi Kalimantan Timur. Rumah Lamin mempunyai panjang sekitar 300 meter, lebar 15 meter, dan tinggi kurang lebih 3 meter. Rumah Lamin juga dikenal sebagai rumah panggung yang panjang dari sambung menyambung. Rumah ini dapat ditinggal oleh beberapa keluarga karena ukuran rumah yang cukup besar. Salah satu rumah Lamin yang berada di Kalimantan Timur bahkan dihuni oleh 12 sampai 30 keluarga. Rumah Lamin dapat menampung kurang lebih 100 orang. Pada tahun 1967, rumah Lamin diresmikan oleh pemerintah Indonesia.",
+                img: "assets/rumah kaltim.jpg"
+            },
+            tarian: {
+                text: "Tari Ganjur atau disebut juga Tari Kanjar Ganjur adalah kesenian tari yang berbentuk ritual dalam sebuah upacara adat yang dilestarikan oleh masyarakat Kota Tenggarong, Kabupaten Kutai Kartanegara, Kalimantan Timur, jenis tarian klasik yang dimiliki oleh Kesultanan Kutai Kartanegara ing Martadipura dalam bentuk koreografi kelompok, karena dapat dilihat dari bentuk pertunjukan yang ditarikan oleh empat penari laki-laki. Ganjur menggambarkan seorang pangeran yang sedang menjaga keamanan tiang ayu, agar pada saat acara Bepelas Sultan agar tidak diganggu oleh roh-roh jahat. Tari ini merupakan salah satu tarian penting dalam rangkaian Festival Erau karena dibawakan setiap malam sebagai bagian dari rangkaian ritual bepelas. Selain pada Festival Erau, tari ini juga dapat ditemukan dalam seremoni penyambutan tamu agung, upacara penobatan Sultan Kutai, dan acara sakral lainnya.",
+                img: "assets/tari kaltim.jpg"
+            },
+            wisata: {
+                text: "Kepulauan Derawan adalah sebuah kepulauan yang berada di Kabupaten Berau, Kalimantan Timur. Di kepulauan ini terdapat sejumlah objek wisata bahari menawan, salah satunya Taman Bawah Laut yang diminati wisatawan mancanegara terutama para penyelam kelas dunia.Kepulauan Derawan memiliki tiga kecamatan yaitu, Pulau Derawan, Maratua, dan Biduk Biduk, Berau. Sedikitnya ada empat pulau yang terkenal di kepulauan tersebut, yakni Pulau Maratua, Derawan, Sangalaki, dan Kakaban yang ditinggali satwa langka penyu hijau dan penyu sisik.",
+                img: "assets/wisata kaltim.jpg"
+            },
+            baju: {
+                text: "Ta'a dan Sapei Sapaq adalah pakaian tradisional Suku Dayak Kenyak yang mendiami wilayah Kalimantan Utara dan Kalimantan Timur. Pakaian Ta'a merupakan pakaian yang dipakai untuk perempuan, sedangkan Sapei Sapaq adalah pakaian untuk laki-laki. Pakaian Ta'a adalah kain sarung yang diberi anyaman manik kecil berwarna-warni dengan motif khusus. Sedangkan Sapei Sapaq adalah baju berbentuk khusus yang dihiasi dengan manik bermotif tertentu serta gigi dan taring macan. Dilansir situs Kementerian Pendidikan dan Kebudayaan (Kemdikbud), pada pakaian Ta'a juga dihiasi dengan taring dan gigi macan. Ukurannya lebih pendek dari sarung-sarung yang biasanya dipakai sebagai pasangan baju kebaya nasional. Untuk membuat sarung menjadi panjang, bagian bawah Ta'a ditambah potongan-potongan kain aneka warna dan berbentuk segi empat kecil. Di mana dipasang berselang-seling. Pada bagian atas disambung dengan potongan kain linen yang bercorak gambar kembang. Pertemuan kedua sisi sarung diletakkan di bagian belakang tubuh pemakainya. Kedua ujung kain diberi tali yang berfungsi sebagai tali pengikat pinggang agar tidak mudah lepas.",
+                img: "assets/baju kaltim.jpg"
+            }
+        },
+
+        kaltara: {
+            title: "Provinsi Kalimantan Utara",
+            rumah: {
+                text: "Rumah adat terkenal dari masyarakat Kalimantan Utara disebut Rumah Baloy. Rumah adat ini merupakan hasil kebudayaan seni arsitektur dari masyarakat suku Tidung, Kalimantan Utara. Seperti suku lainnya, suku Tidung ini mempunyai kebudayaan dan model rumah adat sendiri. Walaupun rumah adat ini masih menggunakan sejumlah tiang tinggi pada bagian bawahnya, bentuk bangunan rumah adat ini terlihat lebih modern dan modis. Berdasarkan dugaan para peneliti, besar kemungkinan rumah adat ini adalah hasil pengembangan arsitektur Dayak dari Rumah Panjang (Rumah Lamin) seperti yang dihuni oleh suku Dayak Kenyah di Kalimantan Timur.",
+                img: "assets/rumah kaltara.jpeg"
+            },
+            tarian: {
+                text: "Tari Jepen memiliki kemiripan dengan kesenian tari dari daerah lain di Nusantara, seperti Tari Zapin di Sumatra, tari Dana, tari Bedana atau tari Zevin yang semuanya berasal dari masyarakat suku Melayu yang tinggal tersebar di Pulau Sumatra, Jawa, Kalimantan, Sulawesi dan pulau-pulau lain di Nusantara. Tari Jepen ini, yang biasanya diiringi oleh musik tradisi yang disebut Tingkilan, memiliki ciri khas ragam gerak yang tidak dimiliki oleh tari sejenis di daerah lain. Ragam gerak dalam tari Jepen dipengaruhi oleh kondisi dan letak geografis daerah Kutai.",
+                img: "assets/tari kaltara.jpg"
+            },
+            wisata: {
+                text: "Air Terjun Gunung Rian terletak di kaki Gunung Rian, Kabupaten Tana Tidung. Sebelumnya, air terjun ini merupakan aset wisata daerah Bulungan, akan tetapi setelah adanya pemekaran wilayah, objek wisata ini menjadi milik Kabupaten Tana Tidung, tepatnya di Kecamatan Sesayap.Dinamakan Air Terjun Gunung Rian karena memang berlokasi di Kampung Rian, dan berada di kaki Gunung Rian. Di sekeliling air terjun merupakan hutan tropis dengan vegetasi yang beragam, kamu akan dengan mudah mendapatkan atau menjumpai salah satu flora khas Kalimantan yaitu pohon ulin. Pohon yang bernama latin aeusideroxylon zwageri ini merupakan vegetasi hutan tropis yang mempunyai nilai jual yang sangat tinggi karena kualitas kayunya yang memang berkualitas super. Untuk kamu para penggemar wisata alam dengan trek yang menantang, Air Terjun Gunung Rian adalah salah satu wisata pilihan. Air Terjun Gunung Rian memiliki tinggi sekitar 90 meter sampai ke puncaknya dan jatuh melalui bebatuan terjal Gunung Rian yang terdiri dari 7 tingkatan, namun hanya tingkat 1 dan 2 saja yang sering dikunjungi oleh wisatawan, karena untuk mencapai tingkatan lainnya diperlukan tenaga ekstra, apalagi untuk sampai pada tingkat ke tujuh yang merupakan puncak Air Terjun Gunung Rian. Hanya untuk orang-orang yang berpengalaman dibidang panjat tebing saja yang bisa mencapainya. Di tingkat dua ini memang air yang jatuh belum terlalu tinggi, namun air terjun tingkat dua ini memiliki areal yang lebih luas dibanding dengan tingkatan selanjutnya dan bisa digunakan untuk berkemah. Jadi kamu bisa bermain air dengan nyaman dan menyenangkan.",
+                img: "assets/wisata kaltara.jpeg"
+            },
+            baju: {
+                text: "Pakaian Ta'a adalah pakaian adat suku Dayak Kenyah yang dipakai oleh perempuan. Pakaian ini berasal dari Kalimantan Utara dan Kalimantan Timur. ",
+                img: "assets/baju kaltim.jpg"
+            }
+        },
+
+        sulut: {
+            title: "Provinsi Sulawesi Utara",
+            rumah: {
+                text: "Rumah Pewaris atau Walewangko adalah rumah adat daerah Minahasa, Provinsi Sulawesi Utara. Minahasa dahulu dikenal dengan nama Tanah Malesung yang merupakan daerah Semenanjung tempat persinggahan Bangsa Portugis dan Spanyol. Oleh karena tanahnya yang subur, Bangsa Portugis dan Spanyol tertarik dengan daerah tersebut. Sementara itu, raja pertama Manado adalah keturunan Bangsa Spanyol, yaitu Muntu Untu. Dari raja pertama inilah diyakini masyarakat Minahasa mengenalkan rumah. Pada masa pemerintahan raja pertama ini, sentuhan teknologi sederhana mulai dikenal, misalnya beberapa alat pertukangan mulai masuk dan dikenal masyarakat. Pada bentuk fisik rumah adat yang dua tiang penyangganya tidak boleh disambung. Jadi, sudah dapat dibayangkan bahwa masyarakat kala itu, ketika mengambil kayu sebagai bahan rumah adat, sudah menggunakan perkakas pertukangan.",
+                img: "assets/rumah sulut.jpg"
+            },
+            tarian: {
+                text: "Maengket atau Tari Maengket Adalah tari tradisional suku Minahasa (orang Sulawesi Utara) yang dari Zaman dulu kala sampai saat ini masih berkembang. Tari Maengket sudah ada ditanah Minahasa sejak rakyat Minahasa mengenal pertanian. Tarian maengket dilakukan pada saat sedang panen hasil pertanian dengan gerakan-gerakan sederhana. Sekarang tarian Maengket telah berkembang teristimewa bentuk dan tarinya tanpa meninggalkan keasliannya. Kata maengket terdiri dari awalan ma dengan kata dasar engket. Kata ma berarti sedang melaksanakan dan engket artinya mengangkat tumit naik turun sesuai lagu. Maengket juga merupakan paduan dari sekaligus seni tari, musik dan nyanyi, serta seni sastra yang terukir dalam lirik lagu yang dilantunkan. Sejumlah pengamat kesenian bahkan melihat maengket sebagai satu bentuk khas sendratari berpadu opera. Apapun, maengket memang merupakan sebuah adikarya kebudayaan puncak yang tercipta melalui proses panjang penyempurnaan demi penyempurnaan.",
+                img: "assets/tari sulut.jpg"
+            },
+            wisata: {
+                text: "Taman Nasional Bunaken adalah taman laut yang terletak di Sulawesi Utara, Indonesia. Taman ini terletak di Segitiga Terumbu Karang yang menjadi habitat bagi 390 spesies terumbu karang dan juga berbagai spesies ikan, moluska, reptil, dan mamalia laut. Taman Nasional Bunaken merupakan perwakilan ekosistem laut Indonesia, meliputi padang rumput laut, terumbu karang, dan ekosistem pantai. Taman nasional ini didirikan pada tahun 1991 dan meliputi wilayah seluas 890.65 km². 97% dari taman nasional ini merupakan habitat laut, sementara 3% sisanya merupakan daratan, meliputi lima pulau: Bunaken, Manado Tua, Mantehage, Naen, dan Siladen.",
+                img: "assets/wisata sulut.jpg"
+            },
+            baju: {
+                text: "Bili'u adalah salah satu pakaian adat Gorontalo dan Sulawesi Utara yang wajib digunakan mempelai wanita dalam upacara adat pernikahan. Bili'u dalam perkembangannya dikenal sebagai salah satu pakaian adat yang unik dan penuh nilai-nilai filosofis di Indonesia. ",
+                img: "assets/baju sulut.jpg"
+            }
+        },
+
+        sulteng: {
+            title: "Provinsi Sulawesi Tengah",
+            rumah: {
+                text: "Rumah Tambi adalah rumah adat atau rumah tradisional dari Tampo Lore, Kabupaten Poso, provinsi Sulawesi Tengah, Indonesia. Rumah adat ini berbentuk panggung yang atapnya sekaligus berguna sebagai dinding. Rumah Tambi merupakan rumah bagi suku Pekurehua (Napu), Bada dan Behoa di Lemba Lore yang umumnya merupakan rumah penduduk setempat serta beberapa wilayah di Sulawesi Tengah menjadikan rumah ini sebagai rumah bagi kepala adat. Yang membedakannya adalah jumlah anak tangga untuk menaiki rumah, di mana rumah Tambi yang digunakan sebagai rumah kepala adat jumlah anak tangganya ganjil, sedangkan untuk penduduk biasa anak tangganya berjumlah genap. Alas rumahnya terdiri dari balok-balok yang disusun, sedangkan pondasinya terdiri dari batu alam. Tangga untuk naik tersebut terbuat dari daun rumbia atau daun bambu yang dibelah dua.",
+                img: "assets/rumah sulteng.jpg"
+            },
+            tarian: {
+                text: "Tari Dero adalah sebuah tarian yang dilakukan lebih dari satu orang atau dilakukan secara bersama-sama, yang melambangkan suka cita atau kebahagiaan serta ungkapan rasa syukur kepada Tuhan. Tari Dero atau Madero berasal dari Kabupaten Poso, Sulawesi Tengah. Tarian ini merupakan salah satu tradisi masyarakat Suku Pamona yang masih dipertahankan hingga sekarang. Tarian ini cukup sederhana dan biasanya dilakukan di daerah atau lapangan yang luas.",
+                img: "assets/tari sulteng.jpg"
+            },
+            wisata: {
+                text: "Danau Poso (bahasa Inggris: Poso Lake), merupakan sebuah danau yang terletak di Kabupaten Poso, Provinsi Sulawesi Tengah, Indonesia; dan merupakan danau terdalam ketiga di Indonesia. Danau ini memiliki panjang 32 km dan lebar 16 km. Festival Danau Poso diadakan di Tentena, kota di pinggir danau ini.",
+                img: "assets/wisata sulteng.jpg"
+            },
+            baju: {
+                text: "Nggembe adalah suatu jenis pakaian tradisional bagi kaum perempuan dari khas suku Kaili di Sulawesi Tengah. Pada dasarnya, baju ini dipakai pada acara adat dan acara khusus suku Kaili. Bentuk baju ini berkerah bulat dengan ukuran baju yang longgar dengan terusan hingga ke pinggang dan lengannya tidak terlalu panjang. Baju ini lebih tepat dipakai untuk acara adat suku kaili dan juga sebagai kostum untuk pagearan tari dalam berbagai kegiatan. ",
+                img: "assets/baju sulteng.jpg"
+            }
+        },
+
+        sulsel: {
+            title: "Provinsi Sulawesi Selatan",
+            rumah: {
+                text: "Tongkonan adalah rumah adat masyarakat suku Toraja yang berada di Provinsi Sulawesi Selatan, Indonesia. Arsitektur tongkonan dikenal dengan bentuknya yang khas melalui struktur bawah, tengah dan atas yang memiliki keindahan estetika struktur dan konstruksinya. Mekanika sistem struktur membentuk suatu sistem estetika arsitektural. Tongkonan tidak lagi dijadikan rumah tempat tinggal tetapi sudah tidak dihuni lagi dikarenakan setiap keluarga yang mendiami Tongkonan pada umumnya telah membangun rumah tinggal sendiri. Rumah adat Tongkonan yang sarat dengan ukiran mengandung makna yaitu melambangkan status sosial pemilik Tongkonan menempati lapisan atas.",
+                img: "assets/rumah sulsel.jpg"
+            },
+            tarian: {
+                text: "Tari Pakarena adalah tarian tradisional asli suku Makassar dari Sulawesi Selatan yang diiringi oleh 2 (dua) kepala drum (gandrang) dan sepasang instrument alat semacam suling (puik-puik). Selain tari pakarena yang selama ini dimainkan oleh maestro tari pakarena Coppong Daeng Rannu (alm) di kabupaten Gowa, juga ada jenis tari pakarena lain yang berasal dari Kabupaten Kepulauan Selayar yaitu “Tari Pakarena Gantarang”. Disebut sebagai Tari Pakarena Gantarang karena tarian ini berasal dari Selayar di sebuah perkampungan yang merupakan pusat kerajaan di Pulau Selayar pada masa lalu yaitu Gantarang Lalang Bata. Tarian yang dimainkan oleh empat orang penari perempuan ini pertama kali ditampilkan pada abad ke 17 tepatnya tahun 1603 saat Pangali Patta Raja dinobatkan sebagai Raja di Gantarang Lalang Bata.",
+                img: "assets/tari sulsel.jpg"
+            },
+            wisata: {
+                text: "Tana Toraja merupakan salah satu situs pelestarian peradaban budaya PROTO MELAYU AUSTRONESIA yang masih terpelihara dengan baik hingga saat ini. Budaya tradisional, musik, tari, seni sastra lisan, bahasa, rumah adat, ukiran, tenun dan kuliner yang masih sangat tradisional, membuat pemerintah Indonesia berupaya agar Tana Toraja dikenal di dunia internasional, salah satunya dengan mengajukan Tana Toraja ke UNESCO untuk menjadi Situs Warisan Dunia UNESCO sejak tahun 2009. Hal ini didukung oleh Jepang untuk menjadikan Tana Toraja sebagai Situs Warisan Dunia UNESCO, Jepang sendiri akan turut serta dalam upaya konservasi terutama terkait rumah adat yang ada di daerah tersebut. Dukungan tersebut disampaikan dalam pertemuan delegasi Indonesia dan Jepang di Poznan, Polandia, Sabtu 11 November 2010. Pada 10 September di Poznan dihadiri perwakilan dari sekitar 40 negara di Asia dan Eropa.",
+                img: "assets/wisata sulsel.jpg"
+            },
+            baju: {
+                text: "Baju bodo berbentuk segi empat, biasanya berlengan pendek, sesuai dengan namanya 'bodo' yang berarti pendek, setengah atas bagian siku lengan.Dahulu, baju bodo bisa dipakai tanpa penutup payudara. Hal ini sudah sempat diperhatikan James Brooke (yang kemudian diangkat sultan Brunei menjadi raja Sarawak) tahun 1840 saat dia mengunjungi istana Gowa. Seiring dengan masuknya Islam, baju ini pun mengalami perubahan. Baju ini dipasangkan dalaman yang berwarna senada namun lebih terang. Perempuan Makassar dahulu mengenakan pakaian sederhana. Sehelai sarung menutupi pinggang hingga kaki dan baju tipis longgar dari kain muslin (kasa), memperlihatkan payudara dan leluk-lekuk dada.",
+                img: "assets/baju sulsel.jpg"
+            }
+        },
+
+        gorontalo: {
+            title: "Provinsi Gorontalo",
+            rumah: {
+                text: "Dulohupa adalah rumah adat atau rumah tradisional Indonesia sebagai bagian dari lambang adat Gorontalo yang dibangun oleh pemerintah di Kelurahan Limba U2, Kecamatan Kota Selatan, Kota Gorontalo, Provinsi Gorontalo . Penduduk Gorontalo menyebut Dulohupa dengan nama Yiladia Dulohupa Lo Ulipu Hulondhalo. Dulohupa memiliki bentuk rumah panggung dengan badan terbuat dari papan dan struktur atapnya bernuansa daerah Gorontalo. Sebagai lambang dari rumah adat Gorontalo, Dulohupa memiliki hiasan berupa pilar-pilar kayu, sedangkan sebagai simbol tangga adat atau yang disebut juga dengan Tolitihu, Dulohupa memiliki dua buah tangga yang masing-masing berada di sebelah kanan dan kiri rumah. Saat ini, Dulohupa dilengkapi dengan taman bunga, bangunan tempat penjualan cendera mata, serta bangunan yang menyimpan kereta kerajaan yang disebut dengan Talanggeda.",
+                img: "assets/rumah gorontalo.jpg"
+            },
+            tarian: {
+                text: "Tidi lo Polopalo adalah salah satu tarian tradisional yang berasal dari daerah Gorontalo. Tarian ini disebut dengan nama Polopalo karena dalam menari, si penari menggunakan alat musik khas Gorontalo yaitu Polopalo yang mengeluarkan bunyi suara yang terbuat dari seruas bambu dengan cara dipukul. Direktorat Jenderal Kebudayaan Kementerian Pendidikan dan Kebudayaan Republik Indonesia pada tahun 2017 sudah menetapkanTidi lo Polopalo menjadi salah satu Warisan Budaya Tak Benda yang berasal dari daerah Gorontalo.",
+                img: "assets/tari gorontalo.jpg"
+            },
+            wisata: {
+                text: "Pulau Saronde terletak di bagian utara provinsi Gorontalo, atau 400 km sebelah barat kota Manado. Pulau ini dapat dicapai dalam waktu 40 menit dari Bandara Gorontalo atau 120 km dari kota Gorontalo.Untuk menuju pulau ini bisa melalui pelabuhan Kwandang kemudian dilanjutkan dengan perahu wisata dengan jarak tempuh sejauh 10 kilometer selama satu jam.",
+                img: "assets/wisata gorontalo.jpg"
+            },
+            baju: {
+                text: "Bili'u adalah salah satu pakaian adat Gorontalo yang wajib digunakan mempelai wanita dalam upacara adat pernikahan. Bili'u dalam perkembangannya dikenal sebagai salah satu pakaian adat yang unik dan penuh nilai-nilai filosofis di Indonesia.",
+                img: "assets/baju sulut.jpg"
+            }
+        },
+
+        sultenggara: {
+            title: "Provinsi Sulawesi Tenggara",
+            rumah: {
+                text: "Rumah Malige atau disebut Kamali didirikan tanpa tali pengikat atau paku tapi dengan saling mengait. Meski demikian mampu berdiri dengan kokoh dan megah. Tujuan pembangunan Malige adalah sebagai tempat tinggal sultan dan keluarganya. Sultan merupakan sebutan raja di Kerajaan Buton. Rumah Malige terbuat dari kayu jati dan wola dengan konstruksi rumah panggung yang semua pasaknya terbuat dari kayu tanpa menggunakan paku.",
+                img: "assets/rumah sultengg.jpeg"
+            },
+            tarian: {
+                text: "Tarian Molulo merupakan salah satu jenis kesenian tari tradisional dari daerah Sulawesi Tenggara, Di Kendari, di Indonesia yang berasal dari suku tolaki. Tarian ini dilakukan pada upacara-upacara adat seperti: pernikahan, pesta panen raya dan upacara pelantikan raja, yang diiringi oleh alat musik pukul yaitu gong. Tarian ini dilakukan oleh pria, wanita, remaja, dan anak-anak yang saling berpegangan tangan, menari mengikuti irama gong sambil membentuk sebuah lingkaran. Gong terdiri dari 2 macam yang berbeda ukuran dan jenis suara.namun saat ini di daerah perkotaan, gong sebagai alat musik pengiring tarian lulo yang digantikan dengan alat musik modern yaitu “Electone”.",
+                img: "assets/tari sultengg.jpg"
+            },
+            wisata: {
+                text: "Kabupaten Wakatobi adalah salah satu kabupaten di provinsi Sulawesi Tenggara, Indonesia. Ibu kota kabupaten ini terletak di Kecamatan Wangiwangi, dibentuk berdasarkan Undang-undang Republik Indonesia Nomor 29 Tahun 2003, tanggal 18 Desember 2003. Luas wilayahnya adalah 473,62 km² dan pada tahun 2021 berpenduduk 111.402 jiwa. Sementara pada pertengahan 2024, jumlah penduduk kabupaten ini sebanyak 118.434 jiwa.Taman Nasional Kepulauan Wakatobi di kabupaten ini merupakan nama kawasan taman nasional yang ditetapkan pada tahun 1996, dengan luas keseluruhan 1,39 juta hektare, menyangkut keanekaragaman hayati laut, skala dan kondisi karang yang menempati salah satu posisi prioritas tertinggi dari konservasi laut di Indonesia.",
+                img: "assets/wisata sultengg.jpg"
+            },
+            baju: {
+                text: "Pakean Umoara ini Saat ini Digunakan Dalam Tarian Umoara. Sebuah Penyajian Tarian Perang Untuk Penyambutan Tamu Agung dan Perayaan Pesta Pernikahan Menyambut Kedatangan Mempelai Pria di Kalangan Masyarakat Adat Suku Tolaki Sulawesi Tenggara. Setiap Warna Pada Pakean Memiliki Arti dan Makna Tersendiri. Seperti Melambangkan Keberanian, Ketangguhan, Tekad, Semangat Dll.",
+                img: "assets/baju sultengg.jpg"
+            }
+        },
+
+        sulbar: {
+            title: "Provinsi Sulawesi Barat",
+            rumah: {
+                text: "Boyang merupakan rumah adat yang berasal dari Provinsi Sulawesi Barat. Rumah Boyang memiliki gaya arsitektur yang unik, berbentuk rumah panggung yang tersusun dari material kayu dan ditopang tiang-tiang penyangga. Rumah ini menjadi tempat tinggal Suku Mandar yang merupakan suku asli dari Sulawesi Barat.",
+                img: "assets/rumah sulbar.jpeg"
+            },
+            tarian: {
+                text: "Tari Toerang Batu atau juga disebut dengan tari perang itu biasanya dibawakan di tengah hutan. Tarian ini sakral karena menjadi bagian penting dalam suatu ritual menjelang perang. Dulu, pasukan berani mati Kerajaan Binuang pada abad ke-15 selalu sukses dalam setiap pertempuran. Biasanya menjelang digelar tarian Toerang, ada upacara persembahan sesaji berupa telur ayam dan nasi ketan empat warna. Penerus tari Toreang Hasan Dalle berharap tarian tradisional ini bisa bertahan menjadi salah satu kekayaan budaya Mandar dan aset berharga pariwisata Sulawesi Barat. Kini tari Toerang biasa ditampilkan sebagai tari penyambut tamu terhormat di Polewali Mandar",
+                img: "assets/tari sulbar.jpg"
+            },
+            wisata: {
+                text: "Pantai Manakarra merupakan bagian dari Teluk Mamuju. Teluk ini merupakan bagian dari Pelabuhan Batu, yang menjadi pusat perhubungan di Kota Mamuju. Pantai Manakarra atau Anjungan Pantai Manakarra mulai diresmikan bersamaan dengan hari jadi Mamuju yang ke 475, dengan memiliki luas sekitar 2.000 meter persegi. Terdapat ikon Perahu Sandeq di sekitar anjungan, yakni perahu tradisional nelayan Mandar yang merupakan suku mayoritas di Sulawesi Barat. Di Anjungan Pantai Manakarra terdapat sebuah Gong Perdamaian yang menjadi simbol akan lahirnya keharmonisan antar semua golongan yang ada. Terdapat 6 pilar yang berwarna merah dengan bertuliskan nama-nama Kecamatan yang ada di Kabupaten Mamuju, di tengahnya terdapat sebuah gong raksasa dengan hiasan gambar macam-macam simbol agama yang menjadi tanda keberagaman agama di Mamuju.",
+                img: "assets/wisata sulbar.jpeg"
+            },
+            baju: {
+                text: "Pattuqduq Towaine adalah pakaian adat yang khas bagi suku Mandar, yang menempati wilayah Sulawesi Barat dan Sulawesi Selatan. Pakaian ini umumnya dikenakan oleh kaum perempuan saat mereka mengiringi tarian adat seperti Patuqdu atau dalam perayaan pernikahan. Pattuqduq Towaine terdiri dari lima bagian utama, termasuk penghias kepala, penghias badan, dan perhiasan tangan. Bagian utama pakaian ini juga sering kali dihiasi dengan motif-motif budaya yang mencerminkan status sosial dan tradisi adat.Selain bagian utama, terdapat beragam aksesoris tambahan yang dikenakan pada kepala, badan, dan tangan. Hiasan kepala, seperti tanduk kerbau, memberikan sentuhan eksotis pada penampilan perempuan Mandar.",
+                img: "assets/baju sulbar.jpg"
+            }
+        },
+
+        maluku: {
+            title: "Provinsi Maluku",
+            rumah: {
+                text: "Baileo atau baileu adalah bangunan berupa balai yang merepresentasikan arsitektur vernakular khas Kepulauan Maluku. Bangunan tradisional ini sering dideskripsikan sebagai rumah adat dan dapat ditemui baik di provinsi Maluku maupun Maluku Utara. Baileo memiliki fungsi yang sangat penting bagi kehidupan masyarakat. Bangunan ini adalah identitas setiap negeri di Maluku, dan merupakan struktur yang wajib ada selain masjid atau gereja. Baileo berfungsi sebagai tempat penyimpanan benda-benda suci, tempat upacara adat, sekaligus sebagai balai warga. Ciri utama baileo adalah ukurannya besar, dan memiliki bentuk yang berbeda jika dibandingkan dengan rumah-rumah lain di sekitarnya.",
+                img: "assets/rumah maluku.jpg"
+            },
+            tarian: {
+                text: "Tarian ini juga sekaligus ajang Pencarian jodoh bagi mereka yang masih bujang, di mana ketika lenso atau selendang diterima merupakan tanda cinta diterima. Lenso artinya Saputangan. Istilah Lenso, hanya dipakai oleh masyarakat di daerah Sulawesi Utara dan daerah lain di Indonesia Timur. Dalam tarian ini, yang menjadi perantara adalah lenso atau selendang. Selendang inilah yang menjadi isyarat: selendang dibuang berarti lamaran ditolak, sedangkan selendang diterima berarti persetujuan",
+                img: "assets/tari maluku.jpg"
+            },
+            wisata: {
+                text: "Pantai Ora adalah suatu pantai yang terletak Pulau Seram, kecamatan Seram Utara, Maluku Tengah, Maluku, Indonesia. Pantai yang berlokasi di ujung barat teluk Sawai ini berada di sebelah Desa Saleman dan Desa Sawai, di tepi hutan Taman Nasional Manusela. Pantai Ora memiliki karakteristik pantai yang berpasir putih dengan air yang sangat jernih dan tenang dengan kekayaan terumbu karang, ikan dan aneka ragam biota laut lainnya. Pantai Ora dan negeri Sawai merupakan objek wisata di teluk Sawai yang setiap tahunnya dapat menyedot sekitar 500 wisatawan dari dalam dan luar negeri.",
+                img: "assets/wisata maluku.jpg"
+            },
+            baju: {
+                text: "Baju Cele adalah pakaian tradisional yang berasal dari Maluku. Pakaian ini memiliki motif garis-garis geometris atau berkotak-kotak kecil. Pakaian ini biasa dipadupadankan dengan kain salele yang diletakkan pada bahu dan biasa dikenakan pada upacara adat. Warna baju ini adalah warna-warna cerah, tetapi lebih sering didominasi dengan warna merah. Jika ada seorang gadis yang mengenakan pakaian ini maka ia akan disebut sebagai nona baju cele kaeng atau nona kain salele. Adapun jika seorang wanita yang mengenakannya maka ia akan dipanggil dengan sebutan nyonya kain salele.",
+                img: "assets/baju maluku.jpeg"
+            }
+        },
+
+        malut: {
+            title: "Provinsi Maluku Utara",
+            rumah: {
+                text: "Sasadu merupakan rumah adat suku bangsa Sahu di Halmahera Barat yang juga merupakan suku bangsa asli dan tertua yang ada di daerah tersebut. Di rumah ini, masyarakat adat Sahu biasa berkumpul dalam pertemuan-pertemuan. Di Halmahera Barat, rumah ini lazim ditemui di setiap desa. Penggunaan Sasadu sebagai lokasi pertemuan masyarakat biasanya terkait dengan diselenggarakannya berbagai acara, misalnya ritual atau upacara adat seperti perayaan panen dan pemilihan ketua adat, dan menyambut tamu yang datang. Meski demikian dapat pula Sasadu digunakan hanya untuk sekadar bersantai tanpa ada acara khusus. Secara etimologi, Sasadu berasal dari kata sadu yang dalam bahasa Sahu tidak punya arti apapun, sedangkan dalam bahasa Ternate artinya adalah menimba, dan sado berarti lengkap, genap bilangannya. Sasadu dibangun di bagian tengah kampung atau desa dengan lokasi yang tidak jauh jalan. Hal ini dimaksudkan agar Sasadu bisa dijangkau dengan mudah sehingga orang-orang dari seluruh penjuru kampung bisa mendatanginya untuk berkumpul.",
+                img: "assets/rumah malut.jpg"
+            },
+            tarian: {
+                text: "Cakalele adalah tarian perang tradisional Maluku yang digunakan untuk menyambut tamu ataupun dalam perayaan adat. Biasanya, tarian ini dibawakan oleh 30 pria dan wanita. Tarian ini dilakukan secara berpasangan dengan iringan musik drum, flute, bia (sejenis musik tiup). Para penari pria biasanya mengenakan parang dan salawaku (perisai) sedangkan penari wanita menggunakan lenso (saputangan). Penari pria mengenakan kostum yang didominasi warna merah dan kuning, serta memakai penutup kepala aluminum yang disisipi dengan bulu putih. Kostum celana merah pada penari pria melambangkan kepahlawanan, keberanian, dan patriotisme rakyat Maluku. Pedang atau parang pada tangan kanan penari melambangkan martabat penduduk Maluku yang harus dijaga sampai mati, sedangkan perisai dan teriakan keras para penari melambangkan gerakan protes melawan sistem pemerintahan yang dianggap tidak memihak pada rakyat. Sumber lain menyatakan bahwa tarian ini merupakan penghormatan atas nenek moyang bangsa Maluku yang merupakan pelaut. Sebelum mengarungi lautan, nenek moyang mereka mengadakan pesta dengan makan, minum, dan berdansa. Saat Tari Cakalele ditampilkan, terkadang arwah nenek moyang dapat memasuki penari dan kehadiran arwah tersebut dapat dirasakan oleh penduduk asli.",
+                img: "assets/tari malut.jpg"
+            },
+            wisata: {
+                text: "Banda Tangah atau Banda Naira adalah salah satu pulau di Kepulauan Banda, dan merupakan pusat administratif Kecamatan Banda, Kabupaten Maluku Tengah, Maluku, Indonesia. Secara administratif, Banda Neira terbagi dalam 12 desa, yakni Dwiwarna, Kampung Baru, Merdeka, Nusantara, Rajawali,Tanah Rata, Lonthoir, Walang, Katoro, Kumber, Selamon, Dender, Waer dan Pulau Hatta.",
+                img: "assets/wisata malut.webp"
+            },
+            baju: {
+                text: "Manteren lamo (busana pria) dan kimun gia (busana wanita) merupakan baju adat Maluku yang dikenakan Sultan dan Permaisuri dari Kerajaan Ternate dan Tidore. Manteren Lamo terdiri dari jas merah dengan 9 kancing perak besar dan celana panjang berwarna hitam. Warna merah melambangkan keperkasaan. Pelengkap yang digunakan adalah penutup kepala (destar).",
+                img: "assets/baju malut.png"
+            }
+        },
+
+        papua: {
+            title: "Provinsi Papua",
+            rumah: {
+                text: "Honai merupakan rumah tradisional masyarakat Papua Pegunungan dan Papua Tengah khususnya suku Dani. Rumah honai berbentuk bulat sederhana dengan pintu kecil dan tidak dilengkapi jendela. Lantai bawah biasa digunakan untuk tidur, sedangkan lantai atas digunakan untuk menjalankan aktivitas sehari-hari seperti makan, bersantai dan membuat kerajinan. Pada lantai bawah, dibagian tengah terdapat hipere yaitu tempat api unggun yang dipergunakan untuk memasak atau sekadar menghangatkan tubuh.",
+                img: "assets/rumah papua.jpg"
+            },
+            tarian: {
+                text: "Tari Yospan adalah jenis tarian Kontemporer yang menggambarkan pergaulan atau persahabatan pada kaum muda-mudi di Teluk Cenderawasih yakni Biak Numfor, Kepulauan Yapen, dan Waropen. Tarian ini muncul pada tahun 1960 yang kemudian sempat menjadi bagian dari senam kesehatan jasmani (SKJ) di sejumlah instansi pemerintahan. Yospan adalah bentuk akronim dari kata Yosim dan Pancar.",
+                img: "assets/tari papua.jpg"
+            },
+            wisata: {
+                text: "Kepulauan Raja Ampat adalah gugusan kepulauan yang berlokasi di barat bagian Semenanjung Kepala Burung (Vogelkoop) Pulau Papua. Secara administrasi, gugusan ini berada di bawah Kabupaten Raja Ampat dan Kota Sorong, Provinsi Papua Barat Daya. Kepulauan ini sekarang menjadi tujuan para penyelam yang tertarik akan keindahan pemandangan bawah lautnya. Empat gugusan pulau yang menjadi anggotanya dinamakan menurut empat pulau terbesarnya, yaitu Pulau Waigeo, Pulau Misool, Pulau Salawati, dan Pulau Batanta. Perairan Kepulauan Raja Ampat memiliki sebaran 574 spesies terumbu karang dan 553 jenis ikan karang (bullseye) dan diketahui sebagai kawasan laut terkaya dengan keanekaragaman hayati tertinggi di dunia.",
+                img: "assets/wisata papua.jpg"
+            },
+            baju: {
+                text: "Koteka adalah pakaian untuk menutup kemaluan laki-laki dalam budaya sebagian penduduk asli Pulau Papua. Kata koteka sendiri berasal dari bahasa mee yang berarti pakaian, dalam bahasa dani disebut holim. Koteka terbuat dari moncong burung taun-taun (Rhyticeros plicatus) dan kulit labu. Mulut burung taun-taun ini dapat diperoleh dengan cara berburu, sedangkan labu air (lagenaria siceraria) ini ditanam dan diproses sehingga berbentuk yang dinamakan koteka yang digunakan oleh kaum laki-laki.",
+                img: "assets/baju papua.jpg"
+            }
+        },
+
+        papuabarat: {
+            title: "Provinsi Papua Barat",
+            rumah: {
+                text: "Rumah kaki seribu adalah rumah adat asli dari penduduk suku Arfak yang menetap di Kabupaten Manokwari, Papua Barat. Rumah adat tersebut dijuluki demikian karena menggunakan banyak tiang penyangga di bawahnya, sehingga jika dilihat memiliki banyak kaki seperti hewan kaki seribu. Sedangkan untuk bagian atapnya dibuat dari daun jerami atau daun sagu. Sementara untuk tiangnya menggunakan kayu, yang terdiri dari kayu berukuran tinggi dan pendek. Fungsi dari tiang kayu tersebut adalah untuk melindungi penduduk dari serangan musuh dan ancaman ilmu hitam. Rumah adar kaki seribu berjenis rumah panggung dan memiliki corak khas Manokwari. Rumah ini dalam bahasa lokal disebut Mod Aki Aksa dalam bahasa Meyah, Igkojei oleh suku Wamesa, Igmam dalam bahasa Hattam, Tu Misen dalam bahasa Sougb.",
+                img: "assets/rumah papuabarat.jpg"
+            },
+            tarian: {
+                text: "Tari Sajojo adalah tarian tradisional yang liriknya berbahasa Moi yang berasal dari daerah Sorong, Papua Barat Daya. Tarian ini sering dijadikan penampilan di berbagai acara, baik acara adat, budaya, maupun sekadar hiburan saja. Tarian ini sangat terkenal di Papua. Tarian ini bisa ditarikan oleh berbagai jenis kalangan, baik pria maupun wanita, tua maupun muda, karena tarian ini termasuk tarian pergaulan.",
+                img: "assets/tari papuabarat.jpeg"
+            },
+            wisata: {
+                text: "Taman Nasional Teluk Cenderawasih (disingkat TNTC) merupakan taman nasional perairan laut terluas di Indonesia, terdiri dari daratan dan pesisir pantai (0,9%), daratan pulau-pulau (3,8%), terumbu karang (5,5%), dan perairan lautan (89,8%). Taman nasional ini terletak di Teluk Cenderawasih, Provinsi Papua Barat. Taman Nasional Teluk Cenderawasih meliputi pulau Mioswaar, Nusrowi, Roon, Rumberpon dan Yoop.",
+                img: "assets/wisata papuabarat.jpg"
+            },
+            baju: {
+                text: "Rok rumbai merupakan bawahan yang menutupi bagian tubuh bawah wanita Papua. Biasanya rumbai digunakan secara berpasangan dengan baju kurung. Rok rumbai terbuat dari bahan daun sagu yang telah dikeringkan kemudian dirajut dengan rapi hingga membentuk sebuah rok. Rok rumbai biasanya digunakan oleh penduduk di wilayah pegunungan tengah atau dekat pesisir pantai. Beberapa kelompok yang masih menggunakan rok rumbai ini adalah Yapen, Sentani, Enjros, Nafri, Biak Numfor, dan Tobati. Meski pada umumnya rok digunakan oleh wanita, namun beberapa pria di Papua juga mengenakan rok berumbai-rumbai ini pada saat diadakan acara adat. Meski tidak begitu banyak, Grameds tidak perlu terkejut sewaktu melihat saat berkunjung ke Papua. Cara penggunaan rok rumbai untuk wanita dan pria berbeda. Jika seorang pria mengenakan rok rumbai, maka dia tidak mengenakan baju kurung seperti wanita. Jika seorang pria mengenakan koteka, biasanya wanita mengenakan rok rumbai tanpa baju kurung. Bagian tubuh atas mereka disamarkan oleh tato bermotif flora dan fauna yang tintanya terbuat dari bahan alami.",
+                img: "assets/baju papuabarat.jpg"
+            }
+        },
+
+    };
+
+    function showProvince(province) {
+        document.getElementById("detailProvinceTitle").innerText = provinceDetails[province].title;
+        document.getElementById("detailText").innerText = "Ayo pilih kategori untuk melihat lebih lanjut.";
+        document.getElementById("detailImage").src = "assets/ggg.jpg";
+        document.getElementById("provinceDetailModal").classList.remove("hidden");
+        document.getElementById("provinceDetailModal").classList.add("flex");
+        
+        // Simpan provinsi yang dipilih
+        selectedProvince = province;
+    }
+
+    
+    function showCategory(category) {
+        document.getElementById("detailText").innerText = provinceDetails[selectedProvince][category].text;
+        document.getElementById("detailImage").src = provinceDetails[selectedProvince][category].img;
+    }
+
+    function closeDetailModal() {
+        document.getElementById("provinceDetailModal").classList.add("hidden");
+    }
+    
+
+    let selectedProvince = null;
+
+
+    function animateProfiles() {
+        const profiles = document.querySelectorAll('.profile-card',);
+        profiles.forEach(profile => {
+            const rect = profile.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                profile.classList.remove('opacity-0', 'translate-x-20');
+                profile.classList.add('opacity-100', 'translate-x-0');
+            } else {
+                profile.classList.remove('opacity-100', 'translate-x-0');
+                profile.classList.add('opacity-0', 'translate-x-20');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', animateProfiles);
+    animateProfiles(); // Panggil saat pertama kali halaman dimuat 
+
+
+    function openDetailModal() {
+    document.getElementById("provinceDetailModal").classList.remove("hidden");
+}
+
+function closeDetailModal() {
+    document.getElementById("provinceDetailModal").classList.add("hidden");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    });
+
+
+    
+    </script>
+
+</body>
+</html>
